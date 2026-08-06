@@ -10,7 +10,7 @@ export interface LegalPageConfig {
   sections: LegalSection[];
 }
 
-const CONTACT_EMAIL = "support@utilityhub.com";
+const CONTACT_EMAIL = "jalalkhan0314076@gmail.com";
 
 export const LEGAL_PAGES: Record<string, LegalPageConfig> = {
   privacy: {

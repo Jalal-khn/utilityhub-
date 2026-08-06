@@ -4,7 +4,7 @@ export const SITE_CONFIG = {
   url: "https://utilityhub.com",
   ogImage: "/opengraph-image",
   contact: {
-    email: "support@utilityhub.com",
+    email: "jalalkhan0314076@gmail.com",
   },
   links: {
     twitter: "https://twitter.com/",
