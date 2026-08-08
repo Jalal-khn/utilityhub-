@@ -6,7 +6,7 @@ import { Heading, Text } from "@/components/ui/typography";
 import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Upload, Download, FileText, Loader2, RotateCw } from "lucide-react";
-import { PDFDocument } from "pdf-lib";
+import { PDFDocument, degrees } from "pdf-lib";
 
 export default function RotatePdf() {
   const [file, setFile] = React.useState<File | null>(null);
@@ -35,7 +35,7 @@ export default function RotatePdf() {
       const pages = pdf.getPages();
 
       pages.forEach(page => {
-        page.setRotation(rotation as any);
+        page.setRotation(degrees(rotation));
       });
 
       const rotatedBytes = await pdf.save();
