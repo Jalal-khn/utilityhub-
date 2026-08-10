@@ -17,6 +17,7 @@ import {
   Type,
   Wand2,
 } from "lucide-react";
+import { SITE_CONFIG } from "@/lib/constants/config";
 import { Container } from "@/components/layout/container";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { HeroSection } from "@/components/common/hero-section";
@@ -89,11 +90,11 @@ export function AllToolsDirectoryPage() {
       name: "All Free Online Tools | UtilityHub",
       description:
         "Browse all free online tools available on UtilityHub including image tools, PDF tools, calculators, converters, developer tools, SEO tools, generators, and more.",
-      url: "https://utilityhub.com/tools",
+      url: `${SITE_CONFIG.url}/tools`,
       hasPart: TOOLS.slice(0, 12).map((tool) => ({
         "@type": "WebApplication",
         name: tool.name,
-        url: `https://utilityhub.com/${tool.category}/${tool.slug}`,
+        url: `${SITE_CONFIG.url}/${tool.category}/${tool.slug}`,
       })),
     }),
     []

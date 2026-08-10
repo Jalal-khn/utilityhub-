@@ -159,21 +159,13 @@ export function Footer() {
             >
               Sitemap
             </Link>
-             <Link
+              <Link
                 href={SITE_CONFIG.links.github}
                 target="_blank"
                 rel="noreferrer"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 GitHub
-              </Link>
-              <Link
-                href={SITE_CONFIG.links.twitter}
-                target="_blank"
-                rel="noreferrer"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Twitter
               </Link>
           </div>
         </div>

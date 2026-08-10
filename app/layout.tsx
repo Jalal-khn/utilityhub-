@@ -26,7 +26,7 @@ const siteSchema = [
     url: SITE_CONFIG.url,
     logo: `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`,
     description: SITE_CONFIG.description,
-    sameAs: [SITE_CONFIG.links.twitter, SITE_CONFIG.links.github],
+    sameAs: [SITE_CONFIG.links.github],
   },
   {
     "@context": "https://schema.org",
@@ -64,7 +64,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_CONFIG.name,
     description: SITE_CONFIG.description,
-    creator: "@utilityhub",
   },
   robots: {
     index: true,
