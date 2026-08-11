@@ -232,22 +232,22 @@ const INFOBOX_STYLES: Record<
   { container: string; icon: React.ComponentType<{ className?: string }>; defaultTitle: string }
 > = {
   info: {
-    container: "border-blue-500/30 bg-blue-500/5 text-blue-100",
+    container: "border-blue-500/30 bg-blue-500/5 text-blue-800 dark:text-blue-100",
     icon: Info,
     defaultTitle: "Note",
   },
   tip: {
-    container: "border-emerald-500/30 bg-emerald-500/5 text-emerald-100",
+    container: "border-emerald-500/30 bg-emerald-500/5 text-emerald-800 dark:text-emerald-100",
     icon: Lightbulb,
     defaultTitle: "Tip",
   },
   warning: {
-    container: "border-amber-500/30 bg-amber-500/5 text-amber-100",
+    container: "border-amber-500/30 bg-amber-500/5 text-amber-800 dark:text-amber-100",
     icon: AlertTriangle,
     defaultTitle: "Warning",
   },
   success: {
-    container: "border-green-500/30 bg-green-500/5 text-green-100",
+    container: "border-green-500/30 bg-green-500/5 text-green-800 dark:text-green-100",
     icon: CheckCircle2,
     defaultTitle: "Success",
   },
