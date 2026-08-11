@@ -3,6 +3,7 @@ export const SITE_CONFIG = {
   description: "Your one-stop destination for online tools and utilities",
   url: "https://yourutilityhub.com",
   ogImage: "/opengraph-image",
+  gaMeasurementId: "G-3JCDT49VVZ",
   contact: {
     email: "jalalkhan0314076@gmail.com",
   },
