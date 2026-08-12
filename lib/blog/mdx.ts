@@ -16,6 +16,8 @@ export async function renderMdx(source: string): Promise<RenderedMdx> {
     source,
     components: mdxComponents,
     options: {
+      blockJS: false,
+      blockDangerousJS: true,
       mdxOptions: {
         remarkPlugins: [remarkGfm, remarkToolLinks],
         rehypePlugins: [rehypeSlug, rehypeHighlight],
