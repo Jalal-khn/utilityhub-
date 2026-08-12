@@ -342,7 +342,7 @@ export const mdxComponents = {
   pre: (props: React.HTMLAttributes<HTMLPreElement>) => (
     <pre
       {...props}
-      className="my-6 overflow-x-auto rounded-lg border bg-muted p-4 text-sm leading-relaxed"
+      className="my-6 overflow-x-auto rounded-lg border bg-muted p-4 text-sm leading-relaxed text-foreground"
     />
   ),
   code: (props: React.HTMLAttributes<HTMLElement>) => (
