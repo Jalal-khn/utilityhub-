@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Facebook, Github } from "lucide-react";
 import { SITE_CONFIG, NAVIGATION } from "@/lib/constants/config";
 import { Container } from "@/components/layout/container";
 import { Separator } from "@/components/ui/separator";
@@ -152,21 +153,31 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved.
           </p>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4">
             <Link
               href="/sitemap.xml"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               Sitemap
             </Link>
-              <Link
-                href={SITE_CONFIG.links.github}
-                target="_blank"
-                rel="noreferrer"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                GitHub
-              </Link>
+            <Link
+              href={SITE_CONFIG.links.facebook}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Follow UtilityHub on Facebook"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Facebook className="h-5 w-5" />
+            </Link>
+            <Link
+              href={SITE_CONFIG.links.github}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="UtilityHub on GitHub"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Github className="h-5 w-5" />
+            </Link>
           </div>
         </div>
       </Container>

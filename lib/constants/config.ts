@@ -9,6 +9,7 @@ export const SITE_CONFIG = {
   },
   links: {
     github: "https://github.com/Jalal-khn",
+    facebook: "https://www.facebook.com/profile.php?id=61593323973024",
   },
 } as const;
 

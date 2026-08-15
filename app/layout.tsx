@@ -27,7 +27,7 @@ const siteSchema = [
     url: SITE_CONFIG.url,
     logo: `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`,
     description: SITE_CONFIG.description,
-    sameAs: [SITE_CONFIG.links.github],
+    sameAs: [SITE_CONFIG.links.facebook, SITE_CONFIG.links.github],
   },
   {
     "@context": "https://schema.org",
