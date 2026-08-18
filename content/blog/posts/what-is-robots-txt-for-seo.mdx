@@ -1,0 +1,219 @@
+---
+title: "Robots.txt Explained: How to Control Search Engine Crawling"
+description: "Learn what robots.txt is, how User-agent, Allow, and Disallow directives work, common mistakes, and how to test your robots.txt file for SEO."
+slug: what-is-robots-txt-for-seo
+featuredImage: /blog/what-is-robots-txt-for-seo.svg
+category: seo
+tags:
+  - seo
+  - robots.txt
+  - technical seo
+  - web crawling
+author: "UtilityHub Team"
+publishedDate: "2026-08-17"
+featured: true
+keywords:
+  - robots.txt
+  - robots txt seo
+  - what is robots txt
+  - how robots txt works
+  - robots txt examples
+  - block search engines
+  - allow search engines
+  - crawl directives
+faq:
+  - question: "Where should my robots.txt file be located?"
+    answer: "In the root directory of your website. For example, https://example.com/robots.txt. Search engines look for it at this exact path."
+  - question: "Does robots.txt block indexing?"
+    answer: "No. robots.txt controls crawling, not indexing. If a page is linked from another indexed page, Google may still index it even if robots.txt blocks crawling. Use the noindex meta tag or X-Robots-Tag header to prevent indexing."
+  - question: "Can I use robots.txt to hide pages from Google?"
+    answer: "Not reliably. robots.txt prevents crawlers from reading the page, but the URL can still appear in search results if other pages link to it. For truly private pages, use authentication or noindex tags."
+  - question: "What happens if I have no robots.txt file?"
+    answer: "If no robots.txt exists at the root of your site, search engines assume all pages are crawlable. This is the default behavior and is perfectly fine for most sites."
+  - question: "How do I test my robots.txt file?"
+    answer: "Use the robots.txt Tester in Google Search Console to check which URLs are blocked. You can also view your robots.txt at yourdomain.com/robots.txt in any browser."
+  - question: "Should I block JavaScript and CSS files in robots.txt?"
+    answer: "Generally, no. Google needs to crawl CSS and JavaScript to render your pages correctly. Blocking these resources can prevent Google from understanding your page layout and functionality, which may hurt your search visibility."
+---
+
+A robots.txt file is a simple text file at the root of your website that tells search engine crawlers which pages to visit and which to skip. It is one of the oldest and most basic SEO tools, and when used correctly, it helps you manage how search engines interact with your site.
+
+This guide covers **what robots.txt is**, how the directives work, common mistakes, and how to test your configuration.
+
+## What is robots.txt?
+
+When a search engine crawler like Googlebot visits your site, the first thing it looks for is `https://yourdomain.com/robots.txt`. If the file exists, the crawler reads its instructions before visiting any other page.
+
+A basic robots.txt file looks like this:
+
+```text
+User-agent: *
+Allow: /
+Sitemap: https://example.com/sitemap.xml
+```
+
+The `User-agent: *` line means "apply these rules to all crawlers." `Allow: /` says "you may crawl everything." The `Sitemap` directive tells the crawler where to find your sitemap.
+
+## How the directives work
+
+Robots.txt uses a small set of directives. Understanding these is enough for most situations:
+
+### User-agent
+
+Specifies which crawler the rules apply to. `*` means all crawlers. You can also target specific bots:
+
+```text
+User-agent: Googlebot
+Disallow: /private/
+```
+
+This tells Googlebot specifically to skip the `/private/` directory, while other crawlers follow the general rules.
+
+### Disallow
+
+Tells the crawler not to visit the specified path:
+
+```text
+User-agent: *
+Disallow: /admin/
+Disallow: /search?q=
+```
+
+The path is relative to your domain root. `/admin/` blocks `https://example.com/admin/` and everything under it.
+
+### Allow
+
+Override Disallow for a specific path. This is useful when you want to block a directory but allow one page inside it:
+
+```text
+User-agent: *
+Disallow: /tools/
+Allow: /tools/image-compressor
+```
+
+Google processes directives top to bottom and uses the most specific match. In this example, `/tools/` is blocked except for the image compressor page.
+
+### Sitemap
+
+Points the crawler to your sitemap. This is not a crawl directive but a helpful signal:
+
+```text
+Sitemap: https://example.com/sitemap.xml
+```
+
+You can include multiple sitemap directives if you have several sitemaps.
+
+## Practical robots.txt examples
+
+Here are configurations for common situations:
+
+**Allow everything (default for most sites):**
+
+```text
+User-agent: *
+Allow: /
+Sitemap: https://example.com/sitemap.xml
+```
+
+**Block all crawlers from the entire site:**
+
+```text
+User-agent: *
+Disallow: /
+```
+
+**Block a specific directory:**
+
+```text
+User-agent: *
+Disallow: /internal/
+Disallow: /tmp/
+Allow: /
+```
+
+**Block one crawler but allow others:**
+
+```text
+User-agent: BadBot
+Disallow: /
+
+User-agent: *
+Allow: /
+```
+
+**Allow Google but block Bing:**
+
+```text
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Disallow: /
+```
+
+<InfoBox type="warning" title="Do not block resources without understanding the consequences">
+Blocking CSS, JavaScript, or image directories in robots.txt can prevent Google from rendering your pages correctly. Google needs these resources to understand how your page looks and functions.
+</InfoBox>
+
+## What robots.txt can and cannot do
+
+This is the most important part of understanding robots.txt:
+
+**Robots.txt CAN:**
+- Prevent crawlers from visiting specific URLs or directories
+- Guide crawlers toward the most important pages
+- Save crawl budget on large sites by blocking low-value pages
+- Point crawlers to your sitemap
+
+**Robots.txt CANNOT:**
+- Guarantee a page will not appear in search results
+- Hide URLs from Google entirely (the URL can still appear if linked from another page)
+- Block all crawlers (malicious bots ignore robots.txt)
+- Replace a noindex tag for preventing indexing
+
+<InfoBox type="info" title="Robots.txt controls crawling, not indexing">
+A page blocked by robots.txt can still appear in search results if other pages link to it. Google can see the URL even if it cannot crawl the page content. For true de-indexing, use the noindex directive.
+</InfoBox>
+
+## The difference between crawling and indexing
+
+These terms are related but distinct:
+
+- **Crawling** is when a search engine bot visits a page and reads its content
+- **Indexing** is when Google stores that content in its database and may show it in search results
+
+Robots.txt controls crawling. A page blocked by robots.txt will not be crawled, but if the URL is linked from elsewhere, Google may still list it in search results (though without the content, since it could not read the page).
+
+This is why robots.txt alone is not a privacy tool. For pages that should never appear in search, combine robots.txt with noindex tags or authentication.
+
+## Common robots.txt mistakes
+
+These mistakes happen frequently and can hurt your SEO:
+
+1. **Blocking CSS and JavaScript** - Google needs these to render your page. Blocking them makes your pages look broken in search results.
+2. **Blocking the entire site by accident** - a `Disallow: /` without a more specific User-agent blocks everything.
+3. **Forgetting to update after site changes** - new sections may need new rules.
+4. **Using robots.txt instead of noindex** - robots.txt prevents crawling but not indexing. Use noindex when you want to remove a page from search results.
+5. **Blocking the sitemap** - if your robots.txt blocks the sitemap URL, crawlers cannot find it.
+6. **Not including a Sitemap directive** - while not required, it helps crawlers find your sitemap quickly.
+
+## How to test your robots.txt
+
+Testing is straightforward:
+
+1. Visit `https://yourdomain.com/robots.txt` in a browser to see the current file
+2. Use Google Search Console's robots.txt Tester (under Settings > Crawling) to test specific URLs
+3. Check the Coverage report to see if important pages are being blocked
+4. After making changes, use the URL Inspection tool to verify Google can still crawl key pages
+
+Google caches your robots.txt, so changes may take a day or two to take effect.
+
+<ToolCTA slug="robots-txt-generator" title="Generate a robots.txt file for your website" label="Open Robots.txt Generator" />
+
+The generator produces a clean robots.txt file with the correct syntax, so you avoid the formatting errors that can accidentally block crawlers.
+
+## Connecting robots.txt to the rest of SEO
+
+Robots.txt is part of your site's crawl management. It works alongside [XML sitemaps](/blog/what-is-an-xml-sitemap-for-seo) (which tell crawlers what exists), [meta tags](/blog/seo-meta-tags-complete-guide) (which tell crawlers what pages are about), and [Open Graph tags](/blog/open-graph-tags-explained) (which control social sharing). Together, these elements form the technical foundation of your site's search presence.
+
+<RelatedTools tools={["robots-txt-generator", "sitemap-generator", "meta-tag-generator"]} title="SEO tools that help" />

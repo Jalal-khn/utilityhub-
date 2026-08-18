@@ -1,0 +1,216 @@
+---
+title: "Open Graph Tags Explained: How to Control Social Media Link Previews"
+description: "Learn what Open Graph tags are, how og:title, og:description, and og:image control link previews on Facebook, LinkedIn, and WhatsApp, and how to troubleshoot them."
+slug: open-graph-tags-explained
+featuredImage: /blog/open-graph-tags-explained.svg
+category: seo
+tags:
+  - seo
+  - open graph
+  - social media
+  - og tags
+  - link previews
+author: "UtilityHub Team"
+publishedDate: "2026-08-18"
+featured: true
+keywords:
+  - open graph tags
+  - og tags
+  - open graph meta tags
+  - og:title
+  - og:description
+  - og:image
+  - social media preview
+  - website link preview
+  - og:url
+  - og:type
+faq:
+  - question: "What is an Open Graph tag?"
+    answer: "An Open Graph tag is a piece of HTML meta data that tells social platforms how to display your page when someone shares the link. It controls the title, description, image, and URL shown in the link preview."
+  - question: "Do Open Graph tags affect SEO?"
+    answer: "Open Graph tags do not directly affect Google rankings. However, they improve how your links appear on social platforms, which can increase clicks and traffic - indirectly benefiting your site's visibility."
+  - question: "What image size should I use for og:image?"
+    answer: "A common recommendation is 1200x630 pixels. This size displays well across most social platforms. The image should be accessible via a public URL and use a standard format like PNG, JPG, or WebP."
+  - question: "Why is my link preview showing the wrong image?"
+    answer: "Social platforms cache link previews. If you changed the og:image, use Facebook's Sharing Debugger or LinkedIn's Post Inspector to force a refresh of the cached version."
+  - question: "Do I need both Open Graph and Twitter Card tags?"
+    answer: "Twitter Cards extend Open Graph with Twitter-specific properties. If you include Open Graph tags, Twitter falls back to them for any missing Twitter-specific values. Adding both gives you full control over how your link appears on each platform."
+  - question: "Can I use different images for Facebook and Twitter?"
+    answer: "Yes. Set og:image for Facebook and LinkedIn, and twitter:image for Twitter/X. Each platform reads its own tags first before falling back to Open Graph."
+---
+
+When someone shares your page on Facebook, LinkedIn, or WhatsApp, a preview card appears with a title, description, and image. That preview is not guessed by the platform - it is built from Open Graph tags in your page's HTML. If those tags are missing or wrong, the preview will be too.
+
+This guide covers **what Open Graph tags are**, how they control link previews, and how to set them up correctly.
+
+## What is Open Graph?
+
+Open Graph is a protocol created by Facebook that lets web pages define how they appear when shared on social platforms. The tags live in the `<head>` section of your HTML and provide structured data about the page.
+
+The core idea: instead of the platform guessing what to show, you tell it exactly what the title, description, image, and URL should be.
+
+Open Graph tags are now supported by Facebook, LinkedIn, WhatsApp, Slack, Discord, Telegram, and many other platforms. They are not a Google ranking factor, but they directly affect how your content looks when shared.
+
+## Why link previews matter
+
+A link without a preview is just a URL - and most people do not click bare URLs. A link with a well-designed preview card gets attention because it gives the viewer context before they click.
+
+The difference between a page with and without Open Graph tags:
+
+**Without Open Graph:**
+- Platform guesses the title (often grabs random text from the page)
+- Description may be missing or irrelevant
+- Image may be missing or pulled from the wrong place
+- The shared link looks unfinished
+
+**With Open Graph:**
+- Title matches your intended message
+- Description is concise and accurate
+- Image is the one you chose
+- The shared link looks professional and purposeful
+
+For any site that shares content on social platforms, Open Graph tags are not optional - they are part of how your content presents itself.
+
+## The essential Open Graph tags
+
+There are six Open Graph properties you should know. Four are essential; two are recommended:
+
+### og:title
+
+The title shown in the link preview. This is separate from your SEO meta title - you can customize it for social sharing.
+
+```html
+<meta property="og:title" content="How to Compress a PDF Without Losing Quality">
+```
+
+Keep it concise (40-60 characters works well for most platforms). Avoid ALL CAPS or excessive punctuation.
+
+### og:description
+
+The description shown in the preview card.
+
+```html
+<meta property="og:description" content="Reduce PDF file size for email and uploads in your browser. Free, no sign-up.">
+```
+
+Write this specifically for the social audience - they may have different context than a Google searcher.
+
+### og:image
+
+The preview image. This is the most visually impactful tag.
+
+```html
+<meta property="og:image" content="https://example.com/images/compress-pdf.png">
+```
+
+Image considerations:
+- Use an absolute URL (starting with `https://`)
+- 1200x630 pixels is a widely compatible size
+- Keep file size reasonable - large images load slowly in previews
+- PNG, JPG, and WebP are all supported
+
+### og:url
+
+The canonical URL of the page being shared.
+
+```html
+<meta property="og:url" content="https://example.com/blog/compress-pdf">
+```
+
+This ensures all shares point to the same URL, even if the page is accessible through different paths.
+
+### og:type
+
+The type of content. For most websites, `website` or `article` is appropriate.
+
+```html
+<meta property="og:type" content="article">
+```
+
+### og:site_name
+
+Your website name. This appears in some platform previews.
+
+```html
+<meta property="og:site_name" content="UtilityHub">
+```
+
+## Complete example
+
+Here is what a full Open Graph block looks like for a blog post:
+
+```html
+<meta property="og:title" content="How to Compress a PDF Without Losing Quality">
+<meta property="og:description" content="Reduce PDF file size for email and uploads in your browser. Free, no sign-up.">
+<meta property="og:image" content="https://example.com/blog/compress-pdf.png">
+<meta property="og:url" content="https://example.com/blog/compress-pdf">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="UtilityHub">
+```
+
+That set of six tags is enough for most pages. You can add more properties for specific use cases, but these six cover the fundamentals.
+
+## SEO metadata vs Open Graph metadata
+
+These serve different purposes:
+
+| Purpose | SEO tags | Open Graph tags |
+| --- | --- | --- |
+| Search engine results | Yes | No |
+| Social media previews | No | Yes |
+| Google ranking signals | Yes | No |
+| Facebook/LinkedIn preview | No | Yes |
+| Browser tab title | Yes (title tag) | No |
+
+Some tags overlap. Your SEO title and og:title can be identical, but keeping them separate gives you the flexibility to write a search-optimized title for Google and a social-optimized title for Facebook. The same applies to descriptions.
+
+<InfoBox type="info" title="Open Graph is not an SEO ranking signal">
+Open Graph tags do not affect your position in Google search results. They control how your content appears on social platforms. They are complementary to SEO, not a substitute for it.
+</InfoBox>
+
+## Troubleshooting missing or wrong previews
+
+When a link preview looks wrong, the cause is usually one of these:
+
+**Wrong image or no image:**
+- Check that `og:image` uses an absolute URL (not a relative path)
+- Verify the image URL is publicly accessible (not behind authentication)
+- Use the Facebook Sharing Debugger to clear the cache and re-scrape
+
+**Wrong title or description:**
+- Verify the tags exist in the page source (right-click > View Page Source)
+- Check for typos in the property names
+- Make sure there are no duplicate og:title tags
+
+**Preview not updating after changes:**
+- Social platforms cache link previews aggressively
+- Use Facebook's Sharing Debugger or LinkedIn's Post Inspector to force a re-scrape
+- Changes may take a few minutes to propagate
+
+**Image not displaying at the right size:**
+- Use the recommended 1200x630 dimensions
+- Avoid very small images or images with extreme aspect ratios
+
+<ToolCTA slug="open-graph-generator" title="Generate Open Graph tags for your page" label="Open Open Graph Generator" />
+
+The generator produces the complete set of Open Graph tags from a single form, so you avoid the common mistakes of missing tags, wrong URLs, or incorrect property names.
+
+## Open Graph and Twitter Cards
+
+Open Graph tags work on Facebook, LinkedIn, and most social platforms. Twitter (X) has its own extended set of tags called Twitter Cards, which read Open Graph values as fallbacks. If you set `og:title` but not `twitter:title`, Twitter uses the Open Graph title.
+
+For full control over Twitter/X previews, add Twitter Card tags alongside your Open Graph tags. See our [Twitter Card guide](/blog/twitter-card-tags-explained) for the details.
+
+## Checklist before sharing
+
+Before sharing a page on social platforms:
+
+- `og:title` exists and is concise
+- `og:description` exists and accurately describes the page
+- `og:image` uses an absolute URL and is publicly accessible
+- `og:url` matches the canonical URL of the page
+- `og:type` is set (usually `website` or `article`)
+- The image dimensions are close to 1200x630
+- Test the preview using Facebook's Sharing Debugger
+
+<RelatedTools tools={["open-graph-generator", "twitter-card-generator", "meta-tag-generator"]} title="SEO tools that help" />
