@@ -112,7 +112,7 @@ export function ArticleLayout({
         </header>
 
         <div className="lg:grid lg:grid-cols-[1fr_220px] lg:gap-10">
-          <div>
+          <div className="min-w-0">
             <MobileTableOfContents
               items={post.toc}
               className="mb-6 lg:hidden"
