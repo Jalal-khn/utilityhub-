@@ -1,0 +1,226 @@
+---
+title: "URL Encoding and Decoding Explained: How Percent Encoding Works"
+description: "Learn how URL encoding works, when to encode and decode URLs, what percent encoding means, and how to fix broken query strings and special characters in URLs."
+slug: url-encoder-decoder-guide
+featuredImage: /blog/url-encoder-decoder-guide.svg
+category: developer
+tags:
+  - url encoding
+  - developer tools
+  - web development
+  - apis
+  - tutorials
+author: "UtilityHub Team"
+publishedDate: "2026-08-19"
+keywords:
+  - url encoder
+  - url decoder
+  - percent encoding
+  - encode url
+  - decode url
+  - url encode online
+  - url decode online
+  - special characters in url
+  - query string encoding
+  - url escape
+faq:
+  - question: "What is URL encoding?"
+    answer: "URL encoding, also called percent encoding, replaces unsafe or reserved characters in a URL with a percent sign followed by their two-digit hexadecimal value. For example, a space becomes %20 and a slash becomes %2F."
+  - question: "Why do URLs need to be encoded?"
+    answer: "URLs can only contain a limited set of safe characters (letters, digits, hyphens, and a few others). Characters like spaces, ampersands, and non-ASCII characters must be encoded to avoid breaking the URL structure or causing errors when the server parses it."
+  - question: "What does %20 mean in a URL?"
+    answer: "%20 is the percent-encoded representation of a space character. When you see %20 in a URL, it means a space was encoded to be safely included in the URL string."
+  - question: "How do I decode a URL?"
+    answer: "Paste the encoded URL into a URL decoder tool. It replaces percent-encoded sequences with their original characters - %20 becomes a space, %3A becomes a colon, and so on."
+  - question: "What characters must be encoded in a URL?"
+    answer: "Spaces, angle brackets, curly braces, pipes, backslashes, non-ASCII characters, and characters with special meaning in URLs like ampersands (&), question marks (?), and hash signs (#) should be encoded when they appear outside their intended role."
+  - question: "Can I encode just part of a URL?"
+    answer: "Yes. You may need to encode only a query parameter value while leaving the rest of the URL intact. URL encoding tools let you encode specific portions of text rather than the entire string."
+  - question: "What is the difference between URL encoding and Base64 encoding?"
+    answer: "URL encoding replaces special characters with percent codes to keep the URL valid. Base64 encoding converts arbitrary binary data into ASCII text. They solve different problems - URL encoding makes text safe for URLs, while Base64 makes data portable across text-based systems."
+---
+
+A broken link with `%20` scattered through it, a search query that returns an error because of an ampersand, an API call that fails because a parameter contains a space - these are all URL encoding problems. Understanding how and why URLs get encoded saves you from debugging mysterious 400 errors and broken query strings.
+
+This guide covers **how URL encoding works**, when to use it, common mistakes, and how to encode and decode URLs in your browser.
+
+## What is URL encoding?
+
+URL encoding, formally called percent encoding, is the process of replacing characters that are unsafe or reserved in a URL with a percent sign (`%`) followed by the character's two-digit hexadecimal value.
+
+The reason is simple: URLs are structured strings with specific rules. Certain characters have special meaning - `?` starts a query string, `&` separates parameters, `#` marks a fragment. If these characters appear in a value rather than as structural delimiters, the URL breaks unless they are encoded.
+
+Here is how common characters encode:
+
+| Character | Encoded form | Context |
+| --- | --- | --- |
+| (space) | `%20` | Most common encoding you will see |
+| `!` | `%21` | Exclamation mark |
+| `&` | `%26` | Ampersand (reserved as parameter separator) |
+| `+` | `%2B` | Plus sign |
+| `/` | `%2F` | Forward slash (reserved as path separator) |
+| `=` | `%3D` | Equals sign (reserved as key-value separator) |
+| `?` | `%3F` | Question mark (reserved as query start) |
+| `#` | `%23` | Hash sign (reserved as fragment marker) |
+| `:` | `%3A` | Colon (reserved in scheme and host) |
+| `%` | `%25` | Percent sign itself must be encoded |
+
+<InfoBox type="tip" title="The %20 space is everywhere">
+If you have ever seen a URL full of `%20` characters, that is URL encoding at work. A space has no place in a URL, so every space is replaced with `%20`. This is the single most common percent-encoded character you will encounter.
+</InfoBox>
+
+## Why URL encoding exists
+
+URLs follow a strict syntax defined in RFC 3986. The specification divides characters into three categories:
+
+**Unreserved characters** (safe, no encoding needed):
+- Letters: `A-Z`, `a-z`
+- Digits: `0-9`
+- A few symbols: `-`, `_`, `.`, `~`
+
+**Reserved characters** (have structural meaning):
+- `:`, `/`, `?`, `#`, `[`, `]`, `@` - delimiters
+- `!`, `$`, `&`, `'`, `(`, `)`, `*`, `+`, `,`, `;`, `=` - sub-delimiters
+
+**Unsafe characters** (must always be encoded):
+- Spaces, angle brackets, curly braces, backslashes, non-ASCII characters
+
+When a reserved or unsafe character appears in a part of the URL where it would be misinterpreted, it must be encoded. For example, an ampersand in a query value must be encoded as `%26` because `&` is the parameter separator.
+
+## How URL encoding works
+
+The encoding process is mechanical:
+
+1. Read each character of the text
+2. If the character is unreserved (letters, digits, `-`, `_`, `.`, `~`), keep it as-is
+3. If the character is reserved or unsafe, replace it with `%` followed by the two-digit hex code of its ASCII value
+4. Non-ASCII characters (like accented letters or Chinese characters) are first encoded to bytes using UTF-8, then each byte is percent-encoded
+
+For example, the text `Hello World!` encodes to `Hello%20World%21` - the space becomes `%20` and the exclamation mark becomes `%21`.
+
+In practice, you rarely need to do this manually. Encoding tools handle it instantly, and programming languages provide built-in functions for it.
+
+## When you need URL encoding
+
+URL encoding comes up in several common situations:
+
+- **Query strings** - when a search term, form value, or any user input goes into a URL parameter, special characters must be encoded
+- **API calls** - REST APIs require properly encoded URLs, especially for parameters containing spaces, non-ASCII text, or special characters
+- **Web forms** - HTML forms automatically encode form data when submitting via GET, but understanding the encoding helps when debugging
+- **Redirects** - redirect URLs with special characters must be encoded to avoid parsing errors
+- **Link generation** - when building URLs programmatically, any dynamic value must be encoded before being inserted into the URL
+
+<InfoBox type="warning" title="Spaces break URLs">
+A space in a URL is invalid. Browsers may handle it gracefully (by encoding it automatically), but servers, APIs, and HTTP clients will reject it. Always encode spaces as %20 before using a URL in code.
+</InfoBox>
+
+## How to encode and decode URLs online
+
+Using the UtilityHub URL tools is straightforward:
+
+### Encoding a URL
+
+1. **Open the URL Encoder** tool
+2. **Paste your text or URL** into the input field
+3. **Click Encode** - the tool converts special characters to percent-encoded form
+4. **Copy the result** and use it in your code or configuration
+
+### Decoding a URL
+
+1. **Open the URL Decoder** tool
+2. **Paste the encoded URL** into the input field
+3. **Click Decode** - the tool replaces percent codes with their original characters
+4. **Read the result** to see the original text
+
+Both tools process everything in your browser, so your URLs never leave your device.
+
+<ToolCTA slug="url-encoder" title="Encode a URL instantly in your browser" label="Open URL Encoder" />
+
+<ToolCTA slug="url-decoder" title="Decode a percent-encoded URL" label="Open URL Decoder" />
+
+## URL encoding examples
+
+Here are practical examples showing how encoding transforms real text:
+
+| Original text | Encoded result |
+| --- | --- |
+| `Hello World` | `Hello%20World` |
+| `price=100&currency=USD` | `price%3D100%26currency%3DUSD` |
+| `https://example.com/path` | `https%3A%2F%2Fexample.com%2Fpath` |
+| `file (1).pdf` | `file%20%281%29.pdf` |
+| `search for: "json formatter"` | `search%20for%3A%20%22json%20formatter%22` |
+
+Notice how the equals sign, ampersand, colon, parentheses, and quotes are all encoded. The URL structure depends on these characters being in specific positions, so encoding them in values prevents conflicts.
+
+## Query string encoding
+
+Query strings deserve special attention because they are where encoding matters most. A typical query string has this structure:
+
+```
+https://example.com/search?q=json+formatter&page=1&lang=en
+```
+
+The `q`, `page`, and `lang` are parameter names. The values after each `=` are parameter values. The `&` separates parameters.
+
+If a parameter value contains a special character, it must be encoded:
+
+- `q=json formatter` → `q=json%20formatter` (space encoded)
+- `q=json&formatter` → `q=json%26formatter` (ampersand encoded)
+- `q="hello world"` → `q=%22hello%20world%22` (quotes and space encoded)
+
+<InfoBox type="info" title="Plus vs %20 in query strings">
+In the `application/x-www-form-urlencoded` format used by HTML forms, a `+` sign represents a space. In other URL contexts, `%20` represents a space. Both mean the same thing, but `%20` is the more universal and modern convention.
+</InfoBox>
+
+## Common URL encoding mistakes
+
+- **Forgetting to encode spaces** - this is the number one cause of broken URLs. Always encode spaces as `%20` in values.
+- **Double encoding** - encoding an already encoded URL turns `%20` into `%2520`. Check whether your input is already encoded before encoding again.
+- **Not encoding ampersands in values** - if a parameter value contains `&`, it will be misinterpreted as a parameter separator unless encoded as `%26`.
+- **Encoding structural characters** - do not encode `?`, `=`, or `&` in their structural roles. Only encode them when they appear as data within values.
+- **Using encoding for authentication** - URL encoding makes text safe for URLs but does not secure it. Never use percent encoding as a substitute for encryption or proper authentication.
+- **Ignoring non-ASCII characters** - URLs cannot contain raw non-ASCII characters. Always encode them to their UTF-8 percent-encoded form.
+
+## URL encoding and web development
+
+For developers, URL encoding is part of daily work:
+
+- **JavaScript** provides `encodeURIComponent()` and `encodeURI()` for encoding, and `decodeURIComponent()` and `decodeURI()` for decoding. `encodeURIComponent` encodes more characters and is usually what you want for parameter values.
+- **Python** has `urllib.parse.quote()` and `urllib.parse.unquote()`.
+- **PHP** offers `urlencode()` and `urldecode()`.
+- **Command-line tools** like `curl` handle encoding automatically, but debugging raw URLs still requires understanding the encoding.
+
+Knowing when to encode, what to encode, and how to debug encoding issues saves hours of frustration when working with APIs, web forms, and dynamic URL generation.
+
+<ToolCTA slug="url-encoder" title="Encode URLs and parameters in your browser" label="Open URL Encoder" />
+
+## Frequently asked questions
+
+### What is URL encoding?
+URL encoding, also called percent encoding, replaces unsafe or reserved characters with a percent sign followed by their two-digit hexadecimal value. This makes text safe to include in URLs without breaking the URL structure.
+
+### Why do URLs need to be encoded?
+URLs have a strict syntax. Characters like spaces, ampersands, and angle brackets have special meaning in URL structure. If they appear in values instead of their intended structural role, the URL breaks. Encoding prevents this.
+
+### What does %20 mean in a URL?
+%20 is the percent-encoded representation of a space character. It is the most common encoded character you will see in URLs.
+
+### How do I decode a URL?
+Paste the encoded URL into a URL decoder tool. It replaces every percent-encoded sequence with its original character - %20 becomes a space, %26 becomes an ampersand, and so on.
+
+### What characters must be encoded in a URL?
+Spaces, angle brackets, curly braces, pipes, backslashes, non-ASCII characters, and reserved characters like `&`, `=`, `?`, and `#` when they appear as data rather than structural delimiters.
+
+### Can I encode just part of a URL?
+Yes. You may need to encode only a query parameter value while leaving the rest of the URL intact. URL encoding tools let you encode specific text rather than the entire string.
+
+### What is the difference between URL encoding and Base64?
+URL encoding replaces special characters with percent codes to make text safe for URLs. Base64 encodes arbitrary binary data into ASCII text for transport across text-based systems. They solve different problems.
+
+## Conclusion
+
+URL encoding is one of those foundational web concepts that seems trivial until something breaks. A missing `%20`, a double-encoded ampersand, or a non-ASCII character in a parameter can silently break API calls, form submissions, and redirects. Understanding how encoding works - and having a reliable tool for it - prevents hours of debugging.
+
+The UtilityHub URL Encoder and Decoder handle encoding and decoding instantly in your browser. Paste your URL or text, get the result, and move on. For related encoding tasks, the [JSON Formatter](/blog/json-formatter-guide) and [Base64 tools](/tools/developer/base64-encoder) cover the other common data formatting needs developers face daily.
+
+<RelatedTools tools={["url-encoder", "url-decoder", "base64-encoder", "json-formatter"]} title="Developer tools for encoding and formatting data" />
