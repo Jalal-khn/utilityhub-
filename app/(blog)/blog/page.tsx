@@ -29,6 +29,7 @@ import {
   RefreshCw,
   Palette,
   Sparkles,
+  Landmark,
   Shield,
   Search,
   Box,
@@ -48,6 +49,7 @@ const CATEGORY_ICONS: Record<string, LucideIcon> = {
   converter: RefreshCw,
   color: Palette,
   generator: Sparkles,
+  finance: Landmark,
   security: Shield,
   seo: Search,
 };

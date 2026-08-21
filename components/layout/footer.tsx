@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Facebook, Github } from "lucide-react";
 import { SITE_CONFIG, NAVIGATION } from "@/lib/constants/config";
+import { CATEGORIES } from "@/lib/constants/categories";
 import { Container } from "@/components/layout/container";
 import { Separator } from "@/components/ui/separator";
 
@@ -39,62 +40,16 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="text-sm font-semibold">Categories</h4>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/text"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Text Tools
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/developer"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Developer Tools
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/math"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Calculators
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/converter"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Converters
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/image"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Image Tools
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/pdf"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  PDF Tools
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/seo"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  SEO Tools
-                </Link>
-              </li>
+              {CATEGORIES.map((category) => (
+                <li key={category.slug}>
+                  <Link
+                    href={`/${category.slug}`}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {category.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

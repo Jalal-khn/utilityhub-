@@ -3040,6 +3040,1045 @@ export const TOOLS: ToolEngineConfig[] = [
     relatedTools: ["sha256-generator", "sha1-generator"],
     searchTags: ["sha512", "hash", "generator", "security"],
   },
+  // Finance Tools
+  {
+    name: "Mortgage Calculator",
+    slug: "mortgage-calculator",
+    addedAt: "2026-08-20",
+    description:
+      "Calculate monthly mortgage payments, total interest, and the true cost of a home with adjustable down payment, rate, and term.",
+    category: "finance",
+    primaryKeyword: "mortgage calculator",
+    secondaryKeywords: [
+      "home loan calculator",
+      "mortgage payment calculator",
+      "house payment calculator",
+      "mortgage interest calculator",
+    ],
+    faq: [
+      {
+        question: "How is a mortgage monthly payment calculated?",
+        answer: "The monthly payment uses the standard amortization formula M = P[r(1+r)^n]/[(1+r)^n-1], where P is the loan amount after your down payment, r is the monthly interest rate, and n is the number of monthly payments.",
+      },
+      {
+        question: "Does a bigger down payment reduce my monthly payment?",
+        answer: "Yes. A larger down payment reduces the loan amount, which lowers both your monthly payment and the total interest you pay over the life of the loan.",
+      },
+      {
+        question: "Does this include taxes and insurance?",
+        answer: "No. This calculator shows principal and interest only. Property taxes, homeowners insurance, and HOA fees are paid separately and vary by location.",
+      },
+    ],
+    schema: {
+      inputs: [
+        {
+          id: "homePrice",
+          name: "homePrice",
+          type: "number",
+          label: "Home Price",
+        },
+        {
+          id: "downPaymentPercent",
+          name: "downPaymentPercent",
+          type: "number",
+          label: "Down Payment (%)",
+        },
+        {
+          id: "rate",
+          name: "rate",
+          type: "number",
+          label: "Interest Rate",
+        },
+        {
+          id: "years",
+          name: "years",
+          type: "number",
+          label: "Loan Term (Years)",
+        },
+      ],
+      outputs: [
+        {
+          id: "monthlyPayment",
+          name: "monthlyPayment",
+          type: "number",
+          label: "Monthly Payment",
+        },
+        {
+          id: "totalInterest",
+          name: "totalInterest",
+          type: "number",
+          label: "Total Interest",
+        },
+      ],
+    },
+    metadata: {},
+    relatedTools: ["loan-calculator", "emi-calculator", "compound-interest-calculator"],
+    searchTags: ["mortgage", "home loan", "house", "payment", "real estate"],
+  },
+  {
+    name: "EMI Calculator",
+    slug: "emi-calculator",
+    addedAt: "2026-08-20",
+    description:
+      "Calculate loan EMI with prepayment savings. See how extra monthly payments shorten your tenure and reduce total interest.",
+    category: "finance",
+    primaryKeyword: "emi calculator",
+    secondaryKeywords: [
+      "emi calculator with prepayment",
+      "loan emi calculator",
+      "equated monthly installment",
+      "prepayment calculator",
+    ],
+    faq: [
+      {
+        question: "What is EMI?",
+        answer: "EMI stands for Equated Monthly Installment - the fixed amount you pay each month toward a loan, covering both principal and interest.",
+      },
+      {
+        question: "How does prepayment reduce my loan?",
+        answer: "Any extra amount paid each month goes directly toward the principal. A smaller principal means less interest accrues, so the loan is paid off faster and you save on total interest.",
+      },
+      {
+        question: "Is the EMI fixed throughout the loan?",
+        answer: "For fixed-rate loans the EMI stays the same. With a floating rate loan, the EMI changes whenever the lender resets the interest rate.",
+      },
+    ],
+    schema: {
+      inputs: [
+        {
+          id: "principal",
+          name: "principal",
+          type: "number",
+          label: "Loan Amount",
+        },
+        {
+          id: "rate",
+          name: "rate",
+          type: "number",
+          label: "Interest Rate",
+        },
+        {
+          id: "years",
+          name: "years",
+          type: "number",
+          label: "Tenure (Years)",
+        },
+        {
+          id: "prepayment",
+          name: "prepayment",
+          type: "number",
+          label: "Extra Monthly Payment",
+        },
+      ],
+      outputs: [
+        {
+          id: "emi",
+          name: "emi",
+          type: "number",
+          label: "Monthly EMI",
+        },
+        {
+          id: "interestSaved",
+          name: "interestSaved",
+          type: "number",
+          label: "Interest Saved with Prepayment",
+        },
+      ],
+    },
+    metadata: {},
+    relatedTools: ["loan-calculator", "mortgage-calculator", "compound-interest-calculator"],
+    searchTags: ["emi", "loan", "prepayment", "installment", "tenure"],
+  },
+  {
+    name: "Compound Interest Calculator",
+    slug: "compound-interest-calculator",
+    addedAt: "2026-08-20",
+    description:
+      "Calculate compound interest growth on investments with monthly contributions. See future value across yearly to daily compounding.",
+    category: "finance",
+    primaryKeyword: "compound interest calculator",
+    secondaryKeywords: [
+      "investment calculator",
+      "compound interest formula",
+      "future value calculator",
+      "savings growth calculator",
+    ],
+    faq: [
+      {
+        question: "What is compound interest?",
+        answer: "Compound interest is interest earned on both your original investment and on previously earned interest, causing your money to grow at an accelerating rate over time.",
+      },
+      {
+        question: "Which compounding frequency should I choose?",
+        answer: "Use the frequency your bank or investment actually uses - savings accounts often compound daily, many bonds semi-annually, and most funds monthly. More frequent compounding produces slightly higher returns.",
+      },
+      {
+        question: "Do monthly contributions affect the result?",
+        answer: "Yes. Regular contributions are added each month and immediately begin earning compound interest, which significantly increases the final value over long periods.",
+      },
+    ],
+    schema: {
+      inputs: [
+        {
+          id: "principal",
+          name: "principal",
+          type: "number",
+          label: "Initial Investment",
+        },
+        {
+          id: "monthlyContribution",
+          name: "monthlyContribution",
+          type: "number",
+          label: "Monthly Addition",
+        },
+        {
+          id: "rate",
+          name: "rate",
+          type: "number",
+          label: "Interest Rate",
+        },
+        {
+          id: "years",
+          name: "years",
+          type: "number",
+          label: "Time Period (Years)",
+        },
+      ],
+      outputs: [
+        {
+          id: "futureValue",
+          name: "futureValue",
+          type: "number",
+          label: "Future Value",
+        },
+        {
+          id: "totalInterest",
+          name: "totalInterest",
+          type: "number",
+          label: "Interest Earned",
+        },
+      ],
+    },
+    metadata: {},
+    relatedTools: ["emi-calculator", "loan-calculator", "percentage-calculator"],
+    searchTags: ["compound interest", "investment", "savings", "growth", "future value"],
+  },
+  {
+    name: "Hourly to Salary Calculator",
+    slug: "hourly-to-salary-calculator",
+    addedAt: "2026-08-20",
+    description:
+      "Convert hourly pay to annual, monthly, weekly, and daily salary. Adjust hours per week and weeks worked per year.",
+    category: "finance",
+    primaryKeyword: "hourly to salary",
+    secondaryKeywords: [
+      "hourly to annual salary",
+      "wage calculator",
+      "salary converter",
+      "hourly wage to yearly",
+    ],
+    faq: [
+      {
+        question: "How do I convert hourly pay to annual salary?",
+        answer: "Multiply your hourly rate by hours worked per week, then multiply by weeks worked per year. The standard full-time assumption is $rate x 40 hours x 52 weeks.",
+      },
+      {
+        question: "What if I take unpaid vacation?",
+        answer: "Reduce the weeks per year setting to match your actual working weeks - for example, use 50 weeks if you take two unpaid weeks off.",
+      },
+      {
+        question: "Is this my take-home pay?",
+        answer: "No. This shows gross salary before taxes, insurance, retirement contributions, and other deductions that vary by country and personal situation.",
+      },
+    ],
+    schema: {
+      inputs: [
+        {
+          id: "hourlyRate",
+          name: "hourlyRate",
+          type: "number",
+          label: "Hourly Rate",
+        },
+        {
+          id: "hoursPerWeek",
+          name: "hoursPerWeek",
+          type: "number",
+          label: "Hours per Week",
+        },
+        {
+          id: "weeksPerYear",
+          name: "weeksPerYear",
+          type: "number",
+          label: "Weeks per Year",
+        },
+      ],
+      outputs: [
+        {
+          id: "annualSalary",
+          name: "annualSalary",
+          type: "number",
+          label: "Annual Salary",
+        },
+        {
+          id: "monthlySalary",
+          name: "monthlySalary",
+          type: "number",
+          label: "Monthly Salary",
+        },
+      ],
+    },
+    metadata: {},
+    relatedTools: ["tip-calculator", "percentage-calculator", "discount-calculator"],
+    searchTags: ["salary", "hourly", "wage", "paycheck", "income"],
+  },
+  {
+    name: "Tip Calculator",
+    slug: "tip-calculator",
+    addedAt: "2026-08-20",
+    description:
+      "Calculate restaurant tips instantly with quick percentage buttons and bill splitting between any number of people.",
+    category: "finance",
+    primaryKeyword: "tip calculator",
+    secondaryKeywords: [
+      "gratuity calculator",
+      "restaurant tip calculator",
+      "bill splitter",
+      "split the bill",
+    ],
+    faq: [
+      {
+        question: "How much should I tip?",
+        answer: "In the United States, 15-20% of the pre-tax bill is standard for good restaurant service. Other countries have different customs - many include service in the bill already.",
+      },
+      {
+        question: "How does bill splitting work?",
+        answer: "Set the number of people and the calculator divides the total bill including tip equally, showing both the per-person total and the tip share per person.",
+      },
+      {
+        question: "Should I tip on the pre-tax or post-tax amount?",
+        answer: "Customary etiquette is to tip on the pre-tax amount, though many people simply tip on the final bill total for convenience.",
+      },
+    ],
+    schema: {
+      inputs: [
+        {
+          id: "billAmount",
+          name: "billAmount",
+          type: "number",
+          label: "Bill Amount",
+        },
+        {
+          id: "tipPercent",
+          name: "tipPercent",
+          type: "number",
+          label: "Tip Percentage",
+        },
+        {
+          id: "people",
+          name: "people",
+          type: "number",
+          label: "Number of People",
+        },
+      ],
+      outputs: [
+        {
+          id: "tipAmount",
+          name: "tipAmount",
+          type: "number",
+          label: "Tip Amount",
+        },
+        {
+          id: "perPersonTotal",
+          name: "perPersonTotal",
+          type: "number",
+          label: "Per Person Total",
+        },
+      ],
+    },
+    metadata: {},
+    relatedTools: ["hourly-to-salary-calculator", "discount-calculator", "percentage-calculator"],
+    searchTags: ["tip", "gratuity", "restaurant", "bill", "split"],
+  },
+  {
+    name: "SIP Calculator",
+    slug: "sip-calculator",
+    addedAt: "2026-08-20",
+    description:
+      "Calculate returns on your monthly SIP investment. See total invested, estimated gains, and maturity value for any period.",
+    category: "finance",
+    primaryKeyword: "sip calculator",
+    secondaryKeywords: [
+      "mutual fund calculator",
+      "systematic investment plan",
+      "sip return calculator",
+      "sip maturity value",
+    ],
+    faq: [
+      {
+        question: "What is a SIP?",
+        answer: "A Systematic Investment Plan (SIP) lets you invest a fixed amount in a mutual fund at regular intervals, usually monthly, combining rupee/dollar-cost averaging with compound growth.",
+      },
+      {
+        question: "How is SIP return calculated?",
+        answer: "Each monthly installment compounds independently for the months it remains invested. The formula is FV = P x [(1+i)^n - 1] / i x (1+i), where P is the monthly amount, i is the monthly rate, and n is the number of months.",
+      },
+      {
+        question: "What return rate should I assume?",
+        answer: "Historically, diversified equity funds have averaged around 10-12% annually over long periods, but past performance never guarantees future results. Use conservative estimates for planning.",
+      },
+    ],
+    schema: {
+      inputs: [
+        {
+          id: "monthlyInvestment",
+          name: "monthlyInvestment",
+          type: "number",
+          label: "Monthly Investment",
+        },
+        {
+          id: "rate",
+          name: "rate",
+          type: "number",
+          label: "Expected Return Rate",
+        },
+        {
+          id: "years",
+          name: "years",
+          type: "number",
+          label: "Investment Period (Years)",
+        },
+      ],
+      outputs: [
+        {
+          id: "futureValue",
+          name: "futureValue",
+          type: "number",
+          label: "Total Value",
+        },
+        {
+          id: "estimatedGains",
+          name: "estimatedGains",
+          type: "number",
+          label: "Estimated Returns",
+        },
+      ],
+    },
+    metadata: {},
+    relatedTools: ["compound-interest-calculator", "retirement-calculator", "roi-calculator"],
+    searchTags: ["sip", "mutual fund", "investment", "monthly", "returns"],
+  },
+  {
+    name: "Simple Interest Calculator",
+    slug: "simple-interest-calculator",
+    addedAt: "2026-08-20",
+    description:
+      "Calculate simple interest instantly using principal, rate, and time. See interest earned, total amount, and yearly interest.",
+    category: "finance",
+    primaryKeyword: "simple interest calculator",
+    secondaryKeywords: [
+      "simple interest formula",
+      "interest calculator principal rate time",
+      "si calculator",
+      "flat interest calculator",
+    ],
+    faq: [
+      {
+        question: "What is simple interest?",
+        answer: "Simple interest is calculated only on the original principal using I = PRT/100 (Principal x Rate x Time). Unlike compound interest, earned interest does not itself earn interest.",
+      },
+      {
+        question: "Where is simple interest used?",
+        answer: "Short-term personal loans, some auto loans, bonds with fixed coupons, and many classroom finance problems use simple interest because it is straightforward to compute.",
+      },
+      {
+        question: "Simple vs compound interest - which grows faster?",
+        answer: "Compound interest always grows faster over multiple periods because interest is added to the balance and earns its own interest. Over one single period they are identical.",
+      },
+    ],
+    schema: {
+      inputs: [
+        {
+          id: "principal",
+          name: "principal",
+          type: "number",
+          label: "Principal Amount",
+        },
+        {
+          id: "rate",
+          name: "rate",
+          type: "number",
+          label: "Interest Rate (% per year)",
+        },
+        {
+          id: "years",
+          name: "years",
+          type: "number",
+          label: "Time Period (Years)",
+        },
+      ],
+      outputs: [
+        {
+          id: "interest",
+          name: "interest",
+          type: "number",
+          label: "Interest Earned",
+        },
+        {
+          id: "total",
+          name: "total",
+          type: "number",
+          label: "Total Amount",
+        },
+      ],
+    },
+    metadata: {},
+    relatedTools: ["compound-interest-calculator", "loan-calculator", "emi-calculator"],
+    searchTags: ["simple interest", "principal", "rate", "time", "formula"],
+  },
+  {
+    name: "Salary After Tax Calculator",
+    slug: "salary-after-tax-calculator",
+    addedAt: "2026-08-20",
+    description:
+      "Estimate take-home pay from gross salary for the US, UK, and Canada. See estimated tax, effective tax rate, and monthly net income.",
+    category: "finance",
+    primaryKeyword: "salary after tax calculator",
+    secondaryKeywords: [
+      "take home pay calculator",
+      "net salary calculator",
+      "income tax estimator",
+      "gross to net calculator",
+    ],
+    faq: [
+      {
+        question: "How accurate is this estimate?",
+        answer: "It applies official progressive tax brackets and standard deductions/allowances for each country. It excludes state/provincial taxes and social contributions like Social Security, National Insurance, or CPP, so treat it as a close first approximation.",
+      },
+      {
+        question: "What is an effective tax rate?",
+        answer: "Your effective rate is total tax divided by gross income. It is always lower than your top bracket rate because lower portions of your income are taxed at lower rates.",
+      },
+      {
+        question: "Why is part of my income tax-free?",
+        answer: "Each system gives a tax-free allowance - the US standard deduction ($15,000), the UK personal allowance (£12,570), and Canada's basic personal amount (~$16,129) - so income up to that level owes no income tax.",
+      },
+    ],
+    schema: {
+      inputs: [
+        {
+          id: "country",
+          name: "country",
+          type: "select",
+          label: "Country / Tax System",
+        },
+        {
+          id: "grossSalary",
+          name: "grossSalary",
+          type: "number",
+          label: "Gross Annual Salary",
+        },
+      ],
+      outputs: [
+        {
+          id: "netIncome",
+          name: "netIncome",
+          type: "number",
+          label: "Net Take-Home Pay",
+        },
+        {
+          id: "effectiveRate",
+          name: "effectiveRate",
+          type: "number",
+          label: "Effective Tax Rate",
+        },
+      ],
+    },
+    metadata: {},
+    relatedTools: ["hourly-to-salary-calculator", "retirement-calculator", "percentage-calculator"],
+    searchTags: ["salary", "tax", "take home", "net pay", "income"],
+  },
+  {
+    name: "Retirement Calculator",
+    slug: "retirement-calculator",
+    addedAt: "2026-08-20",
+    description:
+      "Project your retirement savings based on current savings, monthly contributions, return rate, and years until retirement.",
+    category: "finance",
+    primaryKeyword: "retirement calculator",
+    secondaryKeywords: [
+      "retirement savings calculator",
+      "nest egg calculator",
+      "401k growth projection",
+      "how much do i need to retire",
+    ],
+    faq: [
+      {
+        question: "How much should I save for retirement?",
+        answer: "A common benchmark is 10-12 times your final annual salary saved by retirement age. Personal needs vary widely based on lifestyle, healthcare costs, and other income sources like pensions or social security.",
+      },
+      {
+        question: "What return rate should I use?",
+        answer: "Long-term balanced portfolios have historically returned 6-8% annually; stock-heavy portfolios higher. Use a conservative rate so you are pleasantly surprised rather than short of funds.",
+      },
+      {
+        question: "Does this account for inflation?",
+        answer: "No - results are in today's dollars before inflation adjustment. If inflation averages 3%, $1 million in 30 years will buy roughly what $412,000 buys today.",
+      },
+    ],
+    schema: {
+      inputs: [
+        {
+          id: "currentSavings",
+          name: "currentSavings",
+          type: "number",
+          label: "Current Savings",
+        },
+        {
+          id: "monthlyContribution",
+          name: "monthlyContribution",
+          type: "number",
+          label: "Monthly Contribution",
+        },
+        {
+          id: "currentAge",
+          name: "currentAge",
+          type: "number",
+          label: "Current Age",
+        },
+        {
+          id: "retirementAge",
+          name: "retirementAge",
+          type: "number",
+          label: "Retirement Age",
+        },
+      ],
+      outputs: [
+        {
+          id: "futureValue",
+          name: "futureValue",
+          type: "number",
+          label: "Projected Savings",
+        },
+        {
+          id: "growth",
+          name: "growth",
+          type: "number",
+          label: "Investment Growth",
+        },
+      ],
+    },
+    metadata: {},
+    relatedTools: ["compound-interest-calculator", "sip-calculator", "inflation-calculator"],
+    searchTags: ["retirement", "savings", "pension", "nest egg", "401k"],
+  },
+  {
+    name: "Car Loan Calculator",
+    slug: "car-loan-calculator",
+    addedAt: "2026-08-20",
+    description:
+      "Calculate car loan payments including down payment and trade-in value. See monthly payment, total interest, and true vehicle cost.",
+    category: "finance",
+    primaryKeyword: "car loan calculator",
+    secondaryKeywords: [
+      "auto loan calculator",
+      "vehicle finance calculator",
+      "car payment calculator with trade in",
+      "auto financing",
+    ],
+    faq: [
+      {
+        question: "How does a trade-in affect my loan?",
+        answer: "Trade-in value is subtracted from the vehicle price along with your down payment, reducing the amount you need to finance - which lowers both your monthly payment and total interest.",
+      },
+      {
+        question: "What loan term should I choose?",
+        answer: "Shorter terms (36-48 months) cost less overall but have higher monthly payments. Terms beyond 60 months often leave you owing more than the car is worth due to depreciation.",
+      },
+      {
+        question: "What costs are not included?",
+        answer: "Sales tax, registration, documentation fees, insurance, and extended warranties are excluded. Budget roughly 8-10% extra on top of the vehicle price for these.",
+      },
+    ],
+    schema: {
+      inputs: [
+        {
+          id: "vehiclePrice",
+          name: "vehiclePrice",
+          type: "number",
+          label: "Vehicle Price",
+        },
+        {
+          id: "downPayment",
+          name: "downPayment",
+          type: "number",
+          label: "Down Payment",
+        },
+        {
+          id: "tradeIn",
+          name: "tradeIn",
+          type: "number",
+          label: "Trade-In Value",
+        },
+        {
+          id: "rate",
+          name: "rate",
+          type: "number",
+          label: "Interest Rate",
+        },
+      ],
+      outputs: [
+        {
+          id: "monthlyPayment",
+          name: "monthlyPayment",
+          type: "number",
+          label: "Monthly Payment",
+        },
+        {
+          id: "totalInterest",
+          name: "totalInterest",
+          type: "number",
+          label: "Total Interest",
+        },
+      ],
+    },
+    metadata: {},
+    relatedTools: ["mortgage-calculator", "loan-calculator", "emi-calculator"],
+    searchTags: ["car", "auto", "vehicle", "loan", "trade-in"],
+  },
+  {
+    name: "Credit Card Payoff Calculator",
+    slug: "credit-card-payoff-calculator",
+    addedAt: "2026-08-20",
+    description:
+      "Find out how long until your credit card is paid off with fixed monthly payments, plus total interest you will pay.",
+    category: "finance",
+    primaryKeyword: "credit card payoff calculator",
+    secondaryKeywords: [
+      "debt payoff calculator",
+      "credit card interest calculator",
+      "how long to pay off credit card",
+      "minimum payment calculator",
+    ],
+    faq: [
+      {
+        question: "Why does paying the minimum take so long?",
+        answer: "Minimum payments are often just 1-3% of the balance. Early on, most of that goes to interest, not debt - a $5,000 balance at 21% APR can take decades and cost more than the original balance in interest.",
+      },
+      {
+        question: "How much extra should I pay each month?",
+        answer: "Any amount above the monthly interest charge reduces your principal. Even $25-50 extra per month typically cuts years off payoff time and saves thousands in interest.",
+      },
+      {
+        question: "What if my payment is too low?",
+        answer: "If your payment does not exceed the monthly interest charge, the balance grows instead of shrinking and can never be paid off - the calculator warns you when this happens.",
+      },
+    ],
+    schema: {
+      inputs: [
+        {
+          id: "balance",
+          name: "balance",
+          type: "number",
+          label: "Card Balance",
+        },
+        {
+          id: "apr",
+          name: "apr",
+          type: "number",
+          label: "APR (%)",
+        },
+        {
+          id: "monthlyPayment",
+          name: "monthlyPayment",
+          type: "number",
+          label: "Monthly Payment",
+        },
+      ],
+      outputs: [
+        {
+          id: "months",
+          name: "months",
+          type: "number",
+          label: "Months to Pay Off",
+        },
+        {
+          id: "totalInterest",
+          name: "totalInterest",
+          type: "number",
+          label: "Total Interest Paid",
+        },
+      ],
+    },
+    metadata: {},
+    relatedTools: ["emi-calculator", "loan-calculator", "car-loan-calculator"],
+    searchTags: ["credit card", "debt", "payoff", "apr", "interest"],
+  },
+  {
+    name: "Inflation Calculator",
+    slug: "inflation-calculator",
+    addedAt: "2026-08-20",
+    description:
+      "See how inflation erodes purchasing power over time. Calculate future prices of goods and what your money will be worth.",
+    category: "finance",
+    primaryKeyword: "inflation calculator",
+    secondaryKeywords: [
+      "purchasing power calculator",
+      "cost of living increase",
+      "future price calculator",
+      "money value over time",
+    ],
+    faq: [
+      {
+        question: "How is future cost calculated?",
+        answer: "Future Cost = Today's Price x (1 + inflation rate)^years. At 3% annual inflation, something costing $100 today costs about $134 in ten years.",
+      },
+      {
+        question: "What is a typical inflation rate?",
+        answer: "The US Federal Reserve targets 2% annually, and the long-run historical average is roughly 3%. Actual rates fluctuate significantly year to year.",
+      },
+      {
+        question: "How do I protect money from inflation?",
+        answer: "Common approaches include stocks/index funds, inflation-protected bonds (TIPS), real estate, and I-bonds - assets whose returns historically exceed the inflation rate over long periods.",
+      },
+    ],
+    schema: {
+      inputs: [
+        {
+          id: "amount",
+          name: "amount",
+          type: "number",
+          label: "Amount Today",
+        },
+        {
+          id: "rate",
+          name: "rate",
+          type: "number",
+          label: "Inflation Rate (% per year)",
+        },
+        {
+          id: "years",
+          name: "years",
+          type: "number",
+          label: "Number of Years",
+        },
+      ],
+      outputs: [
+        {
+          id: "futureCost",
+          name: "futureCost",
+          type: "number",
+          label: "Future Cost",
+        },
+        {
+          id: "purchasingPower",
+          name: "purchasingPower",
+          type: "number",
+          label: "Purchasing Power",
+        },
+      ],
+    },
+    metadata: {},
+    relatedTools: ["retirement-calculator", "compound-interest-calculator", "percentage-calculator"],
+    searchTags: ["inflation", "purchasing power", "cost of living", "prices"],
+  },
+  {
+    name: "ROI Calculator",
+    slug: "roi-calculator",
+    addedAt: "2026-08-20",
+    description:
+      "Calculate return on investment with total ROI and annualized ROI (CAGR). Compare investments of different sizes and periods.",
+    category: "finance",
+    primaryKeyword: "roi calculator",
+    secondaryKeywords: [
+      "return on investment calculator",
+      "investment return calculator",
+      "cagr calculator",
+      "annualized return",
+    ],
+    faq: [
+      {
+        question: "What is ROI?",
+        answer: "Return on Investment measures gain or loss relative to cost: ROI = (Final Value - Initial Investment) / Initial Investment x 100. A 50% ROI means every $1 invested became $1.50.",
+      },
+      {
+        question: "Why does annualized ROI matter?",
+        answer: "A 50% return over 5 years is very different from 50% in one year. Annualized ROI (CAGR) converts total return into an average yearly rate, making different investments directly comparable.",
+      },
+      {
+        question: "Does ROI include fees and dividends?",
+        answer: "Only if you include them in the numbers. Use final value after fees and with dividends reinvested for the most accurate picture of true performance.",
+      },
+    ],
+    schema: {
+      inputs: [
+        {
+          id: "initialInvestment",
+          name: "initialInvestment",
+          type: "number",
+          label: "Amount Invested",
+        },
+        {
+          id: "finalValue",
+          name: "finalValue",
+          type: "number",
+          label: "Final Value",
+        },
+        {
+          id: "years",
+          name: "years",
+          type: "number",
+          label: "Holding Period (Years)",
+        },
+      ],
+      outputs: [
+        {
+          id: "roi",
+          name: "roi",
+          type: "number",
+          label: "Total ROI (%)",
+        },
+        {
+          id: "annualizedRoi",
+          name: "annualizedRoi",
+          type: "number",
+          label: "Annualized ROI (%)",
+        },
+      ],
+    },
+    metadata: {},
+    relatedTools: ["compound-interest-calculator", "sip-calculator", "profit-margin-calculator"],
+    searchTags: ["roi", "return", "investment", "cagr", "performance"],
+  },
+  {
+    name: "Profit Margin Calculator",
+    slug: "profit-margin-calculator",
+    addedAt: "2026-08-20",
+    description:
+      "Calculate gross profit, profit margin, and markup from cost and selling price. Understand the difference between margin and markup.",
+    category: "finance",
+    primaryKeyword: "profit margin calculator",
+    secondaryKeywords: [
+      "margin calculator",
+      "markup calculator",
+      "gross profit calculator",
+      "pricing calculator",
+    ],
+    faq: [
+      {
+        question: "What is the difference between margin and markup?",
+        answer: "Margin is profit as a percentage of the selling price; markup is profit as a percentage of the cost. Selling at $100 something that cost $40 gives a 60% margin but a 150% markup.",
+      },
+      {
+        question: "How do I convert markup to margin?",
+        answer: "Margin = Markup / (1 + Markup). A 100% markup equals a 50% margin. Confusing the two is a classic pricing mistake that silently shrinks expected profits.",
+      },
+      {
+        question: "What is a good profit margin?",
+        answer: "It varies enormously by industry - grocery stores run 1-3% net margins while software companies often exceed 20%. Compare against your own industry benchmarks, not across industries.",
+      },
+    ],
+    schema: {
+      inputs: [
+        {
+          id: "cost",
+          name: "cost",
+          type: "number",
+          label: "Cost Price",
+        },
+        {
+          id: "revenue",
+          name: "revenue",
+          type: "number",
+          label: "Selling Price",
+        },
+      ],
+      outputs: [
+        {
+          id: "margin",
+          name: "margin",
+          type: "number",
+          label: "Profit Margin (%)",
+        },
+        {
+          id: "markup",
+          name: "markup",
+          type: "number",
+          label: "Markup (%)",
+        },
+      ],
+    },
+    metadata: {},
+    relatedTools: ["discount-calculator", "roi-calculator", "break-even-calculator"],
+    searchTags: ["margin", "markup", "profit", "pricing", "business"],
+  },
+  {
+    name: "Break-Even Calculator",
+    slug: "break-even-calculator",
+    addedAt: "2026-08-20",
+    description:
+      "Find your break-even point in units and revenue. Calculate how many sales you need before your business becomes profitable.",
+    category: "finance",
+    primaryKeyword: "break even calculator",
+    secondaryKeywords: [
+      "break even point formula",
+      "break even analysis",
+      "fixed and variable costs",
+      "units to break even",
+    ],
+    faq: [
+      {
+        question: "What is the break-even point?",
+        answer: "The break-even point is where total revenue exactly equals total costs - no profit, no loss. Below it you lose money; above it every additional sale earns profit equal to the contribution margin.",
+      },
+      {
+        question: "What is contribution margin?",
+        answer: "Contribution margin is the selling price minus the variable cost per unit. It is the slice of each sale available to cover fixed costs and eventually generate profit.",
+      },
+      {
+        question: "What counts as a fixed cost?",
+        answer: "Costs that stay constant regardless of sales volume: rent, salaries, insurance, software subscriptions. Variable costs like materials, packaging, and per-unit shipping change with each unit sold.",
+      },
+    ],
+    schema: {
+      inputs: [
+        {
+          id: "fixedCosts",
+          name: "fixedCosts",
+          type: "number",
+          label: "Fixed Costs",
+        },
+        {
+          id: "pricePerUnit",
+          name: "pricePerUnit",
+          type: "number",
+          label: "Price per Unit",
+        },
+        {
+          id: "variableCost",
+          name: "variableCost",
+          type: "number",
+          label: "Variable Cost per Unit",
+        },
+      ],
+      outputs: [
+        {
+          id: "breakEvenUnits",
+          name: "breakEvenUnits",
+          type: "number",
+          label: "Break-Even Units",
+        },
+        {
+          id: "breakEvenRevenue",
+          name: "breakEvenRevenue",
+          type: "number",
+          label: "Break-Even Revenue",
+        },
+      ],
+    },
+    metadata: {},
+    relatedTools: ["profit-margin-calculator", "roi-calculator", "percentage-calculator"],
+    searchTags: ["break even", "fixed costs", "variable costs", "business", "startup"],
+  },
 ];
 
 export function getToolsByCategory(category: string): ToolEngineConfig[] {

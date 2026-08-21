@@ -36,6 +36,11 @@ const CATEGORY_METADATA: Record<string, { name: string; description: string; ico
     description: "Color conversion and palette utilities",
     icon: "Palette",
   },
+  finance: {
+    name: "Finance Tools",
+    description: "Mortgage, loan, EMI, investment, and everyday money calculators",
+    icon: "Landmark",
+  },
   generator: {
     name: "Generators",
     description: "Random data, QR, and content generation tools",
@@ -89,6 +94,10 @@ const CATEGORY_INTROS: Record<string, string[]> = {
   color: [
     "Color tools convert between color models, generate palettes and gradients, pick colors from the screen, and check contrast for accessible designs.",
     "They are built for designers and developers who need fast, accurate color workflows - from HEX and RGB conversion to WCAG contrast checking - entirely in the browser.",
+  ],
+  finance: [
+    "Finance calculators help you plan big money decisions: mortgage payments, loan EMIs with prepayment savings, compound interest growth, salary conversions, and restaurant tips.",
+    "Every calculator runs instantly in your browser with no sign-up. Adjust the numbers and see results update in real time so you can compare scenarios before you commit.",
   ],
   generator: [
     "Generators create random data, QR codes, passwords, and other on-demand content. Generate a secure password, a scannable QR code, or a random number in one click.",

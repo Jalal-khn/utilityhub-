@@ -29,6 +29,7 @@ import {
   RefreshCw,
   Palette,
   Sparkles,
+  Landmark,
   Search,
   Box,
 } from "lucide-react";
@@ -84,6 +85,7 @@ const CATEGORY_ICONS: Record<string, LucideIcon> = {
   converter: RefreshCw,
   color: Palette,
   generator: Sparkles,
+  finance: Landmark,
   security: Shield,
   seo: Search,
 };
