@@ -68,10 +68,9 @@ export function getBlogCategoryMetadata(categorySlug: string): Metadata {
 
 export function getPostMetadata(post: BlogPostSummary): Metadata {
   const url = buildUrl(BLOG_POST_ROUTE(post.slug));
-  const title = `${post.title} | ${SITE_CONFIG.name} Blog`;
 
   return {
-    title,
+    title: post.title,
     description: post.description,
     keywords: post.keywords,
     authors: [{ name: post.author }],
