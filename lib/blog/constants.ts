@@ -11,6 +11,7 @@ const BLOG_CATEGORY_INTROS: Record<string, string> = {
   converter: "Convert any measurement instantly with guides to length, temperature, weight, area, speed, and general unit converters.",
   color: "Design and accessibility guides covering color conversion, palettes, gradients, and WCAG contrast checking.",
   generator: "Generate secure passwords, scannable QR codes, random numbers, and more with guides to our on-demand content tools.",
+  finance: "Make smarter money decisions with guides to mortgage payments, loan EMIs, compound interest, take-home pay, retirement savings, and debt payoff strategies.",
   security: "Security-focused guides on password strength checking and hash generation, all processed locally on your device.",
   seo: "Search engine optimization guides covering meta tags, Open Graph, structured data, sitemaps, and ranking best practices.",
 };
