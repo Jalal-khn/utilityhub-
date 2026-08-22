@@ -88,6 +88,31 @@ const nextConfig = {
         destination: "/blog",
         permanent: true,
       },
+      {
+        source: "/tools/:category/:tool",
+        destination: "/:category/:tool",
+        permanent: true,
+      },
+      {
+        source: "/blog/page/0",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/blog/page/1",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/blog/category/:category/page/0",
+        destination: "/blog/category/:category",
+        permanent: true,
+      },
+      {
+        source: "/blog/category/:category/page/1",
+        destination: "/blog/category/:category",
+        permanent: true,
+      },
     ];
   },
 };
