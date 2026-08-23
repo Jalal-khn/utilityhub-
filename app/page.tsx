@@ -39,6 +39,11 @@ import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/json-ld";
 
 export const metadata: Metadata = {
+  title: {
+    absolute: "UtilityHub - Free Online Tools, Calculators & Converters",
+  },
+  description:
+    "Free online tools and utilities - calculators, converters, PDF and image tools, generators, and SEO helpers, all working right in your browser.",
   alternates: {
     canonical: `${SITE_CONFIG.url}/`,
   },

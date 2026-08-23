@@ -1,6 +1,7 @@
 export const SITE_CONFIG = {
   name: "UtilityHub",
-  description: "Your one-stop destination for online tools and utilities",
+  description:
+    "Free online tools and utilities - calculators, converters, PDF and image tools, generators, and SEO helpers, all working right in your browser.",
   url: "https://yourutilityhub.com",
   ogImage: "/opengraph-image",
   gaMeasurementId: "G-3JCDT49VVZ",
