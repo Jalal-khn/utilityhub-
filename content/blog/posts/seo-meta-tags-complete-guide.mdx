@@ -17,6 +17,8 @@ keywords:
   - seo meta tags
   - meta description
   - meta title
+  - meta tags example
+  - how to use meta tags
   - open graph
   - twitter cards
   - schema markup
@@ -50,6 +52,26 @@ The four tags you should care about most are:
 3. **Open Graph tags** - how links look when shared on Facebook, WhatsApp, and X
 4. **Twitter Card tags** - how links look when shared on X
 
+## How to add meta tags to your website
+
+Meta tags are plain HTML, so adding them means placing the right lines inside the `<head>` element of each page. On a hand-coded site you edit the HTML file directly; on platforms like WordPress, an SEO plugin writes these tags for you from simple form fields.
+
+Here is what a fully tagged page looks like as a single block:
+
+```html
+<head>
+  <title>How to Compress a PDF (Free Online) | UtilityHub</title>
+  <meta name="description" content="Compress a PDF without losing quality. Reduce file size for email and uploads, right in your browser - free, no installs.">
+  <link rel="canonical" href="https://example.com/compress-a-pdf">
+  <meta property="og:title" content="How to Compress a PDF (Free Online)">
+  <meta property="og:description" content="Shrink PDF files for email and uploads without losing quality.">
+  <meta property="og:image" content="https://example.com/compress-pdf-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+```
+
+This one block handles everything: the title tag and meta description control your Google listing, the canonical tag prevents duplicate-content confusion, and the Open Graph and Twitter Card tags make shared links show a proper preview. Each page on your site needs its own block with unique title and description text - copying the same tags everywhere defeats the purpose.
+
 ## How to write a great meta title
 
 Your title tag is the biggest factor in whether someone clicks your result. Good titles are:
@@ -65,7 +87,7 @@ Here is what a strong title tag looks like:
 <title>How to Compress a PDF (Free Online) | UtilityHub</title>
 ```
 
-The example above borrows from our guide to [compressing PDFs without losing quality](/blog/compress-pdf-without-losing-quality). Notice the topic appears early and the brand sits at the end.
+The example above borrows from our guide to [compressing PDFs without losing quality](/blog/compress-pdf-without-losing-quality). Notice the topic appears early and the brand sits at the end. For side-by-side rewrites of weak titles into strong ones, see our walkthrough on [writing SEO meta titles and descriptions](/blog/write-seo-meta-titles-and-descriptions).
 
 ## How to write a meta description
 
