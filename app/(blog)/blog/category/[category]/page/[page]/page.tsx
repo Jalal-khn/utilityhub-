@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { Container } from "@/components/layout/container";
 import { Heading, Text } from "@/components/ui/typography";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
@@ -49,7 +49,9 @@ export default function CategoryPaginatedPage({ params }: CategoryPageProps) {
 
   const result = getPaginatedPostsByCategory(category.slug, pageNumber);
   if (pageNumber > result.totalPages) {
-    notFound();
+    permanentRedirect(
+      `${BLOG_CATEGORY_ROUTE(category.slug)}/page/${result.totalPages}`
+    );
   }
 
   return (

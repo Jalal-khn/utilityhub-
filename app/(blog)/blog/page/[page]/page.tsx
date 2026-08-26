@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { Container } from "@/components/layout/container";
 import { Heading, Text } from "@/components/ui/typography";
 import { BlogGrid } from "@/components/blog/blog-grid";
@@ -35,7 +35,7 @@ export default function BlogPaginatedPage({ params }: BlogPageProps) {
   const result = getPaginatedPosts(pageNumber);
 
   if (pageNumber > result.totalPages) {
-    notFound();
+    permanentRedirect(`${ROUTES.BLOG}/page/${result.totalPages}`);
   }
 
   return (
