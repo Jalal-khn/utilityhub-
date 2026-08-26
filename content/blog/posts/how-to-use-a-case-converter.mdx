@@ -17,6 +17,7 @@ keywords:
   - case converter online
   - uppercase converter
   - lowercase converter
+  - uppercase to lowercase converter
   - sentence case converter
   - title case converter
   - change text case
@@ -96,14 +97,15 @@ Input:  how to use a case converter
 Output: How To Use A Case Converter
 ```
 
-### camelCase and snake_case
+### camelCase, snake_case, and kebab-case
 
-These formats are primarily used in programming. camelCase joins words with the first letter of each new word in capitals, starting with a lowercase letter. snake_case joins words with underscores and uses all lowercase. Both are naming conventions for variables, functions, and file names in code.
+These formats are primarily used in programming. camelCase joins words with the first letter of each new word in capitals, starting with a lowercase letter. snake_case joins words with underscores and uses all lowercase. kebab-case is similar but joins words with hyphens (`my-file-name`), and it is the standard for URLs, CSS class names, and file names on the web.
 
 ```text
 Input:  hello world example
 camelCase: helloWorldExample
 snake_case: hello_world_example
+kebab-case: hello-world-example
 ```
 
 <InfoBox type="tip" title="Check what the tool supports">
@@ -166,6 +168,18 @@ Choosing the right case depends on the context:
 <InfoBox type="warning" title="Title case rules vary">
 Different style guides have different rules for which words to capitalize in title case. AP Style, Chicago Manual of Style, and APA each handle articles and prepositions differently. When precision matters, check the style guide your audience expects.
 </InfoBox>
+
+## Changing text case in Word, Google Docs, and Excel
+
+If you are already working inside a specific app, it may have a built-in option worth knowing:
+
+| App | How to change case |
+| --- | --- |
+| Microsoft Word | Select the text, then press **Shift + F3** to cycle between lowercase, UPPERCASE, and Capitalize Each Word |
+| Google Docs | **Format > Text > Capitalization** - choose "lower case", "UPPER CASE", or "Title Case" |
+| Excel | Use the **UPPER()**, **LOWER()**, or **PROPER()** formulas in a helper column (PROPER capitalizes the first letter of every word) |
+
+These built-ins are handy for quick single-app edits. They have limits, though: Word's shortcut cannot produce true sentence case from mixed text, spreadsheet functions require formula work, and none of them handle developer formats like camelCase or kebab-case. For those cases - or when you just want to paste, convert, and copy without menus - a browser-based converter covers every format in one place.
 
 ## Common case conversion mistakes
 

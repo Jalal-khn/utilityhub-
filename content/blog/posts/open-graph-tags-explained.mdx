@@ -17,6 +17,8 @@ keywords:
   - open graph tags
   - og tags
   - open graph meta tags
+  - how to add open graph tags
+  - open graph protocol
   - og:title
   - og:description
   - og:image
@@ -150,6 +152,24 @@ Here is what a full Open Graph block looks like for a blog post:
 
 That set of six tags is enough for most pages. You can add more properties for specific use cases, but these six cover the fundamentals.
 
+## How to add Open Graph tags to your website
+
+Where you put the tags depends on how your site is built:
+
+**Hand-coded or static sites.** Paste the tags inside the `<head>` element of each page, alongside your title tag and meta description. Every page gets its own unique values.
+
+**WordPress.** SEO plugins such as Yoast or Rank Math render Open Graph tags for you - you fill in the title, description, and preview image in the post editor's social section instead of touching HTML.
+
+**Hosted builders (Shopify, Wix, Squarespace).** These platforms generate basic tags automatically and expose social preview settings per page or product. Fill those fields in; do not rely on the defaults, which often pick arbitrary images.
+
+**Frameworks (Next.js, Astro, etc.).** Metadata is defined in code - a metadata export or head component per page - which is also how sites generate previews dynamically for every article.
+
+Whichever route you take, the result is the same: one complete block of tags per page. After adding them, test with the debugging tools below before announcing anything.
+
+<InfoBox type="warning" title="One page, one og:image">
+If a template reuses the same image for every page, shares of individual articles look generic or wrong. Give each important page its own 1200x630 preview.
+</InfoBox>
+
 ## SEO metadata vs Open Graph metadata
 
 These serve different purposes:
@@ -163,6 +183,8 @@ These serve different purposes:
 | Browser tab title | Yes (title tag) | No |
 
 Some tags overlap. Your SEO title and og:title can be identical, but keeping them separate gives you the flexibility to write a search-optimized title for Google and a social-optimized title for Facebook. The same applies to descriptions.
+
+Open Graph is one layer of your page's metadata. For how it fits together with title tags, meta descriptions, canonical URLs, and structured data, see the [complete guide to SEO meta tags](/blog/seo-meta-tags-complete-guide).
 
 <InfoBox type="info" title="Open Graph is not an SEO ranking signal">
 Open Graph tags do not affect your position in Google search results. They control how your content appears on social platforms. They are complementary to SEO, not a substitute for it.
