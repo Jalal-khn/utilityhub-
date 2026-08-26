@@ -16,6 +16,7 @@ featured: true
 keywords:
   - twitter card
   - x card
+  - how to add twitter card tags
   - twitter meta tags
   - x meta tags
   - twitter:card
@@ -149,7 +150,13 @@ Adding them is straightforward - paste the meta tags into the `<head>` section o
 </head>
 ```
 
-If you use a CMS or static site generator, most have plugins or configuration options for Twitter Cards. For hand-coded pages, just add the tags.
+Most platforms handle this for you:
+
+- **WordPress** - SEO plugins like Yoast or Rank Math render Twitter Card tags automatically when you fill in the social preview fields. You do not need to edit HTML.
+- **Shopify, Wix, Squarespace** - social sharing settings on individual pages or products handle Open Graph; Twitter Card tags are usually generated alongside them.
+- **Static site generators and frameworks** - configure Twitter Card metadata in your site's head template or metadata config so every page inherits the tags.
+
+If you are not sure whether your page already has Twitter Card tags, view the page source and search for `twitter:card`.
 
 <InfoBox type="tip" title="Include twitter:site if you have an X account">
 The `twitter:site` tag (e.g., `@utilityhub`) shows your X handle on the card, linking the shared content back to your profile. It is optional but recommended.
