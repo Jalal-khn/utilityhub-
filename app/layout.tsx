@@ -98,11 +98,10 @@ export default function RootLayout({
   gtag('js', new Date());
   gtag('config', '${SITE_CONFIG.gaMeasurementId}');`}
         </Script>
-        <Script
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8779277899319518"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
         />
       </head>
       <body className={inter.className}>
