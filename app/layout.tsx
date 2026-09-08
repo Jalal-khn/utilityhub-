@@ -103,6 +103,7 @@ export default function RootLayout({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8779277899319518"
           crossOrigin="anonymous"
         />
+        <meta name="p:domain_verify" content="40f7ddbaca6c0803bae0bd918f750c85" />
       </head>
       <body className={inter.className}>
         <JsonLd data={siteSchema} />
