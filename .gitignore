@@ -36,3 +36,6 @@ next-env.d.ts
 
 # local GSC export (not committed)
 /gsc-file.xlsx
+
+# temp scan artifacts (not committed)
+/_scan*
