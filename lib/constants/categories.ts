@@ -3,57 +3,57 @@ import { getCategoryToolCounts, TOOLS } from "./tools";
 const CATEGORY_METADATA: Record<string, { name: string; description: string; icon: string }> = {
   pdf: {
     name: "PDF Tools",
-    description: "PDF creation, conversion, and optimization tools",
+    description: "Free online PDF tools to merge, split, compress, rotate, and convert PDFs to JPG or images — entirely in your browser with no uploads.",
     icon: "FileText",
   },
   image: {
     name: "Image Tools",
-    description: "Image conversion, compression, and editing tools",
+    description: "Free image tools to compress, resize, crop, flip, and convert images between PNG, JPG, WEBP, and HEIC formats right in your browser.",
     icon: "Image",
   },
   text: {
     name: "Text Tools",
-    description: "Text analysis, transformation, and generation tools",
+    description: "Free text tools to count words and characters, convert case, remove duplicate lines, reverse text, and generate placeholder copy instantly.",
     icon: "Type",
   },
   developer: {
     name: "Developer Tools",
-    description: "Developer utilities for encoding, formatting, and generation",
+    description: "Free developer utilities for JSON formatting, Base64 encoding and decoding, URL encoding, UUID generation, and JWT decoding in the browser.",
     icon: "Code",
   },
   math: {
     name: "Calculators",
-    description: "Everyday calculators for finance, health, and math",
+    description: "Free online calculators for age, BMI, percentages, loans, discounts, GST, and date differences — instant results, no sign-up required.",
     icon: "Calculator",
   },
   converter: {
     name: "Converters",
-    description: "Convert values between units and formats",
+    description: "Free unit converters for length, temperature, weight, area, speed, and more — convert measurements instantly in your browser.",
     icon: "RefreshCw",
   },
   color: {
     name: "Color Tools",
-    description: "Color conversion and palette utilities",
+    description: "Free color tools to convert HEX to RGB, generate palettes and gradients, pick colors, and check WCAG contrast for accessible design.",
     icon: "Palette",
   },
   finance: {
     name: "Finance Tools",
-    description: "Mortgage, loan, EMI, investment, and everyday money calculators",
+    description: "Free finance calculators for mortgages, loans, EMI, compound interest, SIP, retirement, salary, tips, and everyday money decisions.",
     icon: "Landmark",
   },
   generator: {
     name: "Generators",
-    description: "Random data, QR, and content generation tools",
+    description: "Free generators for strong passwords, QR codes, random numbers, and on-demand data — everything runs locally in your browser.",
     icon: "Sparkles",
   },
   security: {
     name: "Security Tools",
-    description: "Security, hashing, and password utilities",
+    description: "Free security tools to check password strength and generate SHA-256, SHA-512, MD5, and SHA-1 hashes entirely on your device.",
     icon: "Shield",
   },
   seo: {
     name: "SEO Tools",
-    description: "Search engine optimization and metadata generators",
+    description: "Free SEO tools to generate meta tags, robots.txt, sitemap.xml, Open Graph, and Twitter card markup ready to paste into your site.",
     icon: "Search",
   },
 };
