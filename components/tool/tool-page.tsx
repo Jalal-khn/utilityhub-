@@ -5,6 +5,7 @@ import { FAQ } from "@/components/common/faq";
 import { Separator } from "@/components/ui/separator";
 import { ToolGrid } from "@/components/tool/tool-grid";
 import { getToolFeatures, getToolBenefits } from "@/lib/tool-engine/features";
+import { getToolContent } from "@/lib/constants/tool-content";
 import type { ToolEngineConfig } from "@/lib/tool-engine";
 import type { ReactNode } from "react";
 
@@ -19,6 +20,7 @@ interface ToolPageProps {
 export function ToolPage({ config, categoryLabel, toolComponent, relatedTools, guide }: ToolPageProps) {
   const features = getToolFeatures(config);
   const benefits = getToolBenefits(config);
+  const content = getToolContent(config.slug);
 
   return (
     <div className="flex flex-col">
@@ -48,6 +50,58 @@ export function ToolPage({ config, categoryLabel, toolComponent, relatedTools, g
           {toolComponent}
         </div>
       </Container>
+
+      {content && content.about.length > 0 && (
+        <>
+          <Separator />
+          <Container className="py-12">
+            <div className="max-w-4xl mx-auto">
+              <Heading level="h2" className="mb-6">
+                About {config.name}
+              </Heading>
+              <div className="space-y-4">
+                {content.about.map((paragraph, index) => (
+                  <Text key={index} className="leading-relaxed">
+                    {paragraph}
+                  </Text>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </>
+      )}
+
+      {content && (
+        <>
+          <Separator />
+          <Container className="py-12">
+            <div className="max-w-4xl mx-auto">
+              <Heading level="h2" className="mb-6">
+                When to Use {config.name}
+              </Heading>
+              <div className="rounded-lg border border-border/60 bg-card p-6">
+                <Text className="leading-relaxed">{content.uses}</Text>
+              </div>
+            </div>
+          </Container>
+        </>
+      )}
+
+      {content && (
+        <>
+          <Separator />
+          <Container className="py-12">
+            <div className="max-w-4xl mx-auto">
+              <Heading level="h2" className="mb-6">
+                Pro Tip
+              </Heading>
+              <div className="rounded-lg bg-muted/60 p-6">
+                <Text className="leading-relaxed">{content.tip}</Text>
+              </div>
+            </div>
+          </Container>
+        </>
+      )}
 
       <Separator />
 
