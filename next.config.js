@@ -36,7 +36,7 @@ const securityHeaders = [
       "font-src 'self' data: https://fonts.gstatic.com",
       `connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.googleadservices.com https://*.doubleclick.net https://*.gstatic.com https://*.google.com https://*.google https://*.adtrafficquality.google`,
       "worker-src 'self' blob:",
-      "frame-src https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com",
+      "frame-src https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.google https://*.adtrafficquality.google",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",
