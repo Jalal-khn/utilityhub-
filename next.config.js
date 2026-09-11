@@ -34,7 +34,7 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https://*.google.com https://*.googleadservices.com https://*.doubleclick.net https://*.gstatic.com https://*.googlesyndication.com",
       "font-src 'self' data: https://fonts.gstatic.com",
-      `connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.googleadservices.com https://*.doubleclick.net https://*.gstatic.com https://*.google.com`,
+      `connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.googleadservices.com https://*.doubleclick.net https://*.gstatic.com https://*.google.com https://*.google https://*.adtrafficquality.google`,
       "worker-src 'self' blob:",
       "frame-src https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com",
       "frame-ancestors 'none'",
