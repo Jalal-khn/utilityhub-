@@ -32,7 +32,7 @@ const securityHeaders = [
       "default-src 'self'",
       `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.googleadservices.com https://*.doubleclick.net https://*.gstatic.com https://*.google.com https://*.google https://*.adtrafficquality.google${isDev ? " 'unsafe-eval'" : ""}`,
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://*.google.com https://*.googleadservices.com https://*.doubleclick.net https://*.gstatic.com https://*.googlesyndication.com https://*.google https://*.adtrafficquality.google https://*.googletagmanager.com",
+      "img-src 'self' data: blob: https://*.google.com https://*.googleadservices.com https://*.doubleclick.net https://*.gstatic.com https://*.googlesyndication.com https://*.google https://*.adtrafficquality.google https://*.googletagmanager.com https://cdn.openhunts.com",
       "font-src 'self' data: https://fonts.gstatic.com",
       `connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.googleadservices.com https://*.doubleclick.net https://*.gstatic.com https://*.google.com https://*.google https://*.adtrafficquality.google`,
       "worker-src 'self' blob:",
@@ -49,7 +49,12 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: [],
-    remotePatterns: [],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.openhunts.com",
+      },
+    ],
   },
   experimental: {
     optimizePackageImports: ["lucide-react"],

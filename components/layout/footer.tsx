@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Github } from "lucide-react";
 import { SITE_CONFIG, NAVIGATION } from "@/lib/constants/config";
 import { CATEGORIES } from "@/lib/constants/categories";
@@ -108,31 +109,48 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
-            <Link
-              href="/sitemap.xml"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Sitemap
-            </Link>
-            <Link
-              href={SITE_CONFIG.links.facebook}
+          <div className="flex flex-col items-center gap-2">
+            <a
+              href="https://openhunts.com"
               target="_blank"
               rel="noreferrer"
-              aria-label="Follow UtilityHub on Facebook"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              title="OpenHunts Club"
+              className="opacity-80 hover:opacity-100 transition-opacity"
             >
-              <Facebook className="h-5 w-5" />
-            </Link>
-            <Link
-              href={SITE_CONFIG.links.github}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="UtilityHub on GitHub"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <Github className="h-5 w-5" />
-            </Link>
+              <Image
+                src="https://cdn.openhunts.com/badges/club.webp"
+                alt="OpenHunts Club Member"
+                width={486}
+                height={105}
+                className="h-auto w-[195px]"
+              />
+            </a>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/sitemap.xml"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Sitemap
+              </Link>
+              <Link
+                href={SITE_CONFIG.links.facebook}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Follow UtilityHub on Facebook"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Facebook className="h-5 w-5" />
+              </Link>
+              <Link
+                href={SITE_CONFIG.links.github}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="UtilityHub on GitHub"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Github className="h-5 w-5" />
+              </Link>
+            </div>
           </div>
         </div>
       </Container>
