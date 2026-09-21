@@ -6,8 +6,9 @@ import { Heading, Text } from "@/components/ui/typography";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { SITE_CONFIG } from "@/lib/constants/config";
-import { Shield, Zap, Globe, Wrench } from "lucide-react";
+import { JsonLd } from "@/components/seo/json-ld";
+import { SITE_CONFIG, SITE_AUTHOR } from "@/lib/constants/config";
+import { Shield, Zap, Globe, Wrench, UserRound, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -64,6 +65,18 @@ const values = [
 export default function AboutPage() {
   return (
     <div className="flex flex-col">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: SITE_AUTHOR.name,
+          url: SITE_AUTHOR.url,
+          jobTitle: SITE_AUTHOR.role,
+          description: SITE_AUTHOR.credentials,
+          email: `mailto:${SITE_AUTHOR.email}`,
+          sameAs: SITE_AUTHOR.sameAs,
+        }}
+      />
       <Container className="py-8">
         <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "About" }]} className="mb-6" />
         <div className="mb-10 max-w-3xl">
@@ -105,6 +118,51 @@ export default function AboutPage() {
               is free, requires no registration, and works across desktop, tablet, and mobile devices.
               New tools are added regularly, and existing ones are continuously improved.
             </Text>
+          </div>
+        </div>
+      </Container>
+
+      <Container className="pb-12">
+        <div className="mx-auto max-w-3xl rounded-lg border bg-card p-6 sm:p-8">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-base font-semibold text-primary-foreground">
+              {SITE_AUTHOR.name.charAt(0)}
+            </div>
+            <div>
+              <Heading level="h2" className="text-xl">
+                Meet the Author
+              </Heading>
+              <Text variant="muted" className="text-sm">
+                {SITE_AUTHOR.name} · {SITE_AUTHOR.role}
+              </Text>
+            </div>
+          </div>
+          <Text variant="muted" className="leading-relaxed">
+            {SITE_AUTHOR.bio}
+          </Text>
+          <Text variant="muted" className="mt-2 leading-relaxed">
+            Because {SITE_AUTHOR.name} is a nursing student, every
+            health-related calculator on UtilityHub (such as the BMI
+            calculator) is checked against its clinical source formula as
+            part of final review.
+          </Text>
+          <div className="mt-4 flex flex-wrap gap-4 text-sm">
+            <a
+              href={`mailto:${SITE_AUTHOR.email}`}
+              className="flex items-center gap-1.5 font-medium text-primary hover:underline"
+            >
+              <Mail className="h-4 w-4" />
+              {SITE_AUTHOR.email}
+            </a>
+            <a
+              href={SITE_CONFIG.links.githubProfile}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 font-medium text-primary hover:underline"
+            >
+              <UserRound className="h-4 w-4" />
+              GitHub
+            </a>
           </div>
         </div>
       </Container>

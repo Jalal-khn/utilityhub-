@@ -54,6 +54,6 @@ export const BLOG_TAGS = [
 
 export const BLOG_PAGE_SIZE = 9;
 
-export const BLOG_DEFAULT_AUTHOR = "UtilityHub Team";
+export const BLOG_DEFAULT_AUTHOR = "Jalal Khan";
 
 export const BLOG_WORDS_PER_MINUTE = 220;

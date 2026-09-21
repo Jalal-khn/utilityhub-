@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/lib/hooks/use-theme";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { JsonLd } from "@/components/seo/json-ld";
-import { SITE_CONFIG } from "@/lib/constants/config";
+import { SITE_CONFIG, SITE_AUTHOR } from "@/lib/constants/config";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +27,20 @@ const siteSchema = [
     url: SITE_CONFIG.url,
     logo: `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`,
     description: SITE_CONFIG.description,
+    founder: {
+      "@type": "Person",
+      name: SITE_AUTHOR.name,
+    },
     sameAs: [SITE_CONFIG.links.facebook, SITE_CONFIG.links.github],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: SITE_AUTHOR.name,
+    url: SITE_AUTHOR.url,
+    jobTitle: SITE_AUTHOR.role,
+    description: SITE_AUTHOR.credentials,
+    sameAs: SITE_AUTHOR.sameAs,
   },
   {
     "@context": "https://schema.org",
@@ -51,8 +64,8 @@ export const metadata: Metadata = {
   },
   description: SITE_CONFIG.description,
   keywords: ["tools", "utilities", "online tools", "free tools"],
-  authors: [{ name: SITE_CONFIG.name }],
-  creator: SITE_CONFIG.name,
+  authors: [{ name: SITE_AUTHOR.name, url: SITE_AUTHOR.url }],
+  creator: SITE_AUTHOR.name,
   openGraph: {
     type: "website",
     locale: "en_US",

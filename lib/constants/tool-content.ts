@@ -2,6 +2,7 @@ export interface ToolContent {
   about: string[];
   uses: string;
   tip: string;
+  disclaimer?: string;
 }
 
 export const TOOL_CONTENT: Record<string, ToolContent> = {
@@ -88,6 +89,8 @@ export const TOOL_CONTENT: Record<string, ToolContent> = {
     uses:
       "Use it to track weight changes over time, to prepare for a health consultation, or to get a reference number before choosing a fitness or nutrition program.",
     tip: "BMI is less meaningful for athletes, children, or older adults — use it as a trend indicator for the same person rather than an absolute verdict.",
+    disclaimer:
+      "This tool is for general informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. BMI does not measure body fat directly and may be inaccurate for athletes, children, pregnant women, and older adults. Always consult a qualified healthcare provider about your weight and overall health.",
   },
   "percentage-calculator": {
     about: [

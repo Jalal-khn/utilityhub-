@@ -14,6 +14,7 @@ import { PostImage } from "@/components/blog/post-image";
 import { BlogGrid } from "@/components/blog/blog-grid";
 import { RelatedTools } from "@/lib/blog/mdx-components";
 import { formatDate } from "@/lib/blog/format";
+import { SITE_CONFIG, SITE_AUTHOR } from "@/lib/constants/config";
 import {
   buildArticleJsonLd,
   buildBreadcrumbJsonLd,
@@ -101,7 +102,12 @@ export function ArticleLayout({
               {post.author.charAt(0).toUpperCase()}
             </div>
             <div className="text-sm">
-              <p className="font-medium">{post.author}</p>
+              <Link
+                href={ROUTES.ABOUT}
+                className="font-medium hover:text-primary"
+              >
+                {post.author}
+              </Link>
               <p className="text-muted-foreground">
                 {post.updatedDate && post.updatedDate !== post.publishedDate
                   ? `Updated ${formatDate(post.updatedDate)}`
@@ -181,6 +187,26 @@ export function ArticleLayout({
       {post.faq && post.faq.length > 0 && (
         <FAQ items={post.faq} className="mx-auto max-w-3xl" />
       )}
+
+      <section className="mx-auto mt-12 max-w-3xl">
+        <div className="flex items-center gap-4 rounded-lg border bg-card p-6">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-base font-semibold text-primary-foreground">
+            {post.author.charAt(0).toUpperCase()}
+          </div>
+          <div className="min-w-0">
+            <p className="text-sm font-medium">{post.author}</p>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+              {SITE_AUTHOR.credentials}
+            </p>
+            <Link
+              href={ROUTES.ABOUT}
+              className="mt-2 inline-block text-sm font-medium text-primary hover:underline"
+            >
+              About the author
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <section className="mx-auto mt-16 max-w-3xl">
         <div className="mb-6 flex items-center justify-between">

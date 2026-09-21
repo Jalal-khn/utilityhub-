@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE_CONFIG } from "@/lib/constants/config";
+import { SITE_CONFIG, SITE_AUTHOR } from "@/lib/constants/config";
 import {
   BLOG_CATEGORY_ROUTE,
   BLOG_POST_ROUTE,
@@ -26,14 +26,14 @@ export function getBlogIndexMetadata(): Metadata {
   return {
     title: "Blog",
     description:
-      "Articles, tutorials, and guides on PDFs, images, text, developer tools, calculators, converters, colors, generators, security, and SEO from the UtilityHub team.",
+      "Articles, tutorials, and guides on PDFs, images, text, developer tools, calculators, converters, colors, generators, security, and SEO - written and maintained by Jalal Khan.",
     alternates: {
       canonical: buildUrl(ROUTES.BLOG),
     },
     openGraph: {
       title: "UtilityHub Blog",
       description:
-        "Articles, tutorials, and guides on PDFs, images, text, developer tools, calculators, converters, colors, generators, security, and SEO.",
+        "Articles, tutorials, and guides on PDFs, images, text, developer tools, calculators, converters, colors, generators, security, and SEO - written and maintained by Jalal Khan.",
       url: buildUrl(ROUTES.BLOG),
       siteName: SITE_CONFIG.name,
       type: "website",
@@ -129,6 +129,8 @@ export function buildArticleJsonLd(post: BlogPostSummary) {
     author: {
       "@type": "Person",
       name: post.author,
+      url: SITE_AUTHOR.url,
+      sameAs: [...SITE_AUTHOR.sameAs],
     },
     datePublished: post.publishedDate,
     ...(post.updatedDate ? { dateModified: post.updatedDate } : {}),

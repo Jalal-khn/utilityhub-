@@ -103,6 +103,27 @@ export function ToolPage({ config, categoryLabel, toolComponent, relatedTools, g
         </>
       )}
 
+      {content && content.disclaimer && (
+        <>
+          <Separator />
+          <Container className="py-12">
+            <div className="max-w-4xl mx-auto">
+              <div
+                id="medical-disclaimer"
+                className="flex flex-col gap-3 rounded-lg border border-border/60 bg-muted/40 p-6"
+              >
+                <Heading level="h2" className="text-lg">
+                  Important Disclaimer
+                </Heading>
+                <Text variant="muted" className="leading-relaxed">
+                  {content.disclaimer}
+                </Text>
+              </div>
+            </div>
+          </Container>
+        </>
+      )}
+
       <Separator />
 
       <Container className="py-12">
