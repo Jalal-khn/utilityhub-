@@ -480,6 +480,24 @@ export const TOOL_CONTENT: Record<string, ToolContent> = {
       "Use it to submit required photo documentation, to compile screenshots into a single document, or to convert scanned JPG pages into one PDF.",
     tip: "Keep images at a good resolution when combining — a PDF made from tiny JPGs cannot be sharpened later.",
   },
+  "pdf-to-word": {
+    about: [
+      "PDF to Word converts the text in a PDF into an editable Word document, so you can reuse text without the friction of a locked file.",
+      "PDFs are rigid by design: editing them usually means retyping or paying for a converter. This tool reads the text on every page and rebuilds it as a .docx you can open and edit in Word, Google Docs, or LibreOffice — all in the browser, with no upload.",
+    ],
+    uses:
+      "Use it to pull text out of a report for rewriting, to reuse a quote or specification in your own document, or to turn a resume or handout into an editable file.",
+    tip: "PDF to Word extracts text, not design. For scanned PDFs with no text layer, use an OCR step first; for preserving the exact page look, PDF to JPG is the better export.",
+  },
+  "word-to-pdf": {
+    about: [
+      "Word to PDF converts .docx documents and .txt text files into a clean PDF, the standard format for sharing forms, reports, and submissions.",
+      "Most submission and delivery systems want PDF because it looks the same on every device. This tool renders the text from your Word file into a tidy PDF in the browser — no upload, no account.",
+    ],
+    uses:
+      "Use it to submit a Word draft as a professional PDF, to share a document that must not be casually edited, or to convert a text file into a printable page.",
+    tip: "Fonts and layout are simplified to a clean single-column PDF. If exact page layout matters, export from Word's own Save As PDF first.",
+  },
   "rotate-pdf": {
     about: [
       "Rotate PDF turns pages of a PDF 90, 180, or 270 degrees to fix documents scanned or saved in the wrong orientation.",

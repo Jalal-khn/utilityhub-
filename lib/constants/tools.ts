@@ -1861,6 +1861,50 @@ export const TOOLS: ToolEngineConfig[] = [
     searchTags: ["pdf", "jpg", "convert", "image"],
   },
   {
+    name: "PDF to Word",
+    slug: "pdf-to-word",
+    description: "Convert PDF text into an editable Word document. Extract text from PDFs as a .docx file in your browser.",
+    category: "pdf",
+    primaryKeyword: "pdf to word",
+    secondaryKeywords: ["convert pdf to word", "pdf to docx", "pdf to word format", "pdf to word converter"],
+    faq: [
+      {
+        question: "Does the conversion preserve layout and images?",
+        answer: "This tool extracts the text from each PDF page and rebuilds it as editable Word paragraphs. Layout, tables, and images are not copied; use it to get the text into Word, then reformat as needed.",
+      },
+      {
+        question: "Why is my converted Word document empty?",
+        answer: "Scanned or image-based PDFs contain no selectable text, so nothing can be extracted. Run OCR on the PDF first to create a text layer, then convert again.",
+      },
+      {
+        question: "Is the PDF uploaded anywhere?",
+        answer: "No. The PDF is read and converted entirely in your browser using PDF.js, so your documents never leave your device.",
+      },
+    ],
+    schema: {
+      inputs: [
+        {
+          id: "pdf",
+          name: "pdf",
+          type: "file",
+          label: "PDF File",
+          accept: "application/pdf",
+        },
+      ],
+      outputs: [
+        {
+          id: "docx",
+          name: "docx",
+          type: "file",
+          label: "Word Document",
+        },
+      ],
+    },
+    metadata: {},
+    relatedTools: ["compress-pdf", "pdf-to-image", "split-pdf"],
+    searchTags: ["pdf", "word", "docx", "convert", "text"],
+  },
+  {
     name: "JPG to PDF",
     slug: "jpg-to-pdf",
     description: "Convert JPG and PNG images into a single PDF document. Turn photos into a professional PDF file.",
@@ -1986,6 +2030,46 @@ export const TOOLS: ToolEngineConfig[] = [
     metadata: {},
     relatedTools: ["merge-pdf", "compress-pdf"],
     searchTags: ["pdf", "unlock", "password", "decrypt"],
+  },
+  {
+    name: "Word to PDF",
+    slug: "word-to-pdf",
+    description: "Convert Word documents and text files into a PDF. Turn .docx reports and drafts into a shareable PDF.",
+    category: "pdf",
+    primaryKeyword: "word to pdf",
+    secondaryKeywords: ["convert word to pdf", "docx to pdf", "doc to pdf", "text to pdf"],
+    faq: [
+      {
+        question: "What file types are supported?",
+        answer: "This tool accepts .docx (Word) and .txt text files and renders the extracted text into a clean PDF.",
+      },
+      {
+        question: "Is formatting preserved?",
+        answer: "The text content is extracted and rendered into the PDF. Complex styling such as headers, images, and tables is simplified.",
+      },
+    ],
+    schema: {
+      inputs: [
+        {
+          id: "file",
+          name: "file",
+          type: "file",
+          label: "Word or Text File",
+          accept: ".docx,.txt",
+        },
+      ],
+      outputs: [
+        {
+          id: "pdf",
+          name: "pdf",
+          type: "file",
+          label: "PDF Document",
+        },
+      ],
+    },
+    metadata: {},
+    relatedTools: ["pdf-to-jpg", "pdf-to-word"],
+    searchTags: ["word", "docx", "pdf", "convert"],
   },
   {
     name: "Length Converter",
