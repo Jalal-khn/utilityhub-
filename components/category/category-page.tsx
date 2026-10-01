@@ -23,6 +23,7 @@ interface CategoryPageProps {
   name: string;
   description: string;
   intro?: string[];
+  about?: string[];
   slug: string;
   tools: ToolEngineConfig[];
   faq: Array<{ question: string; answer: string }>;
@@ -30,7 +31,7 @@ interface CategoryPageProps {
 
 type SortOption = "alphabetical" | "reverse";
 
-export function CategoryPage({ name, description, intro = [], slug, tools, faq }: CategoryPageProps) {
+export function CategoryPage({ name, description, intro = [], about = [], slug, tools, faq }: CategoryPageProps) {
   const [query, setQuery] = React.useState("");
   const [sortBy, setSortBy] = React.useState<SortOption>("alphabetical");
   const relatedCategories = CATEGORIES.filter((category) => category.slug !== slug).slice(0, 4);
@@ -128,6 +129,11 @@ export function CategoryPage({ name, description, intro = [], slug, tools, faq }
             {name} overview
           </Heading>
           {intro.map((paragraph) => (
+            <Text variant="muted" key={paragraph} className="mb-3">
+              {paragraph}
+            </Text>
+          ))}
+          {about.map((paragraph) => (
             <Text variant="muted" key={paragraph} className="mb-3">
               {paragraph}
             </Text>

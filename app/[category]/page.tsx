@@ -124,6 +124,7 @@ export default function CategoryPageRoute({ params }: CategoryPageParams) {
         name={category.name}
         description={category.description}
         intro={category.intro}
+        about={category.about}
         slug={category.slug}
         tools={tools}
         faq={faqItems}

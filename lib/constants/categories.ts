@@ -113,6 +113,53 @@ const CATEGORY_INTROS: Record<string, string[]> = {
   ],
 };
 
+const CATEGORY_ABOUTS: Record<string, string[]> = {
+  pdf: [
+    "PDF files are a daily fixture for students, freelancers, and offices, and this category gathers the browser tools that handle the most common PDF jobs. Merge several documents into one, split a file into separate pages, compress files that are too large to email, and rotate pages that show up sideways - all without installing desktop software.",
+    "Conversion is covered too: turn PDFs into JPG or PNG images, and extract text into an editable Word document. Every operation runs locally on your device, so confidential contracts, invoices, and scans never get uploaded to a server. If a scanned PDF cannot be processed, you will see a clear message explaining why, and the related guides walk through each workflow step by step.",
+  ],
+  image: [
+    "Images power websites, stores, and social feeds, and this category brings together the browser tools for managing them. Compress bulky photos before uploading, resize and crop images to any dimension, rotate, flip, and edit them, and convert between formats such as PNG, JPG, WEBP, and HEIC in seconds.",
+    "All processing happens in your browser, which means no uploads, no queues, and no limits on how many times you convert. The tools are useful for designers, developers, and everyday users alike - shrink a portfolio image, prepare product photos for a listing, or swap a format for a client while comparing quality and size side by side.",
+  ],
+  text: [
+    "Text work is faster with the right measurement and transformation tools, and this category collects them in one place. Count words, characters without spaces, sentences, and paragraphs, estimate reading time, convert case, reverse or remove duplicate lines, and generate placeholder copy for designs and documents.",
+    "Writers, editors, students, and developers use these utilities to hit length limits, clean up drafts, and prepare text for publication. Everything runs locally, so notes, drafts, and unpublished work never leave your device while you refine it.",
+  ],
+  developer: [
+    "Developers spend a surprising amount of time on small mechanical tasks, and this category puts the essentials on one page. Format and validate JSON, encode and decode Base64, percent-encode and decode URLs, generate UUIDs, and decode JWTs - all without opening a separate application.",
+    "Every tool executes entirely in the browser, making it safe for inspecting tokens, keys, and test data you would rather not send anywhere. Paste a payload, read the result, and drop it straight back into your workflow. The companion guides explain the encodings and point out the common mistakes that trip people up.",
+  ],
+  math: [
+    "Everyday calculations become instant with this category of free calculators. Work out age, BMI, percentage change, discounts, loan payments, GST, and date differences without reaching for a spreadsheet, and without signing up for anything.",
+    "Each calculator shows the formula and the result clearly, so you can trust the number and understand where it comes from. They are built for quick, single answers - whether you are budgeting, comparing plans, or just checking a figure - and all computation happens in your browser.",
+  ],
+  converter: [
+    "Unit conversion is one of those small tasks where one wrong factor costs real time, and this category keeps conversions reliable. Convert length, temperature, weight, area, and speed, plus a general converter for values you need to translate between everyday units.",
+    "Every converter works instantly in the browser and gives exact results with the unit you expect. Whether you are cooking, traveling, measuring for a project, or double-checking a specification, you can convert any value without installing anything or uploading data.",
+  ],
+  color: [
+    "Color work is faster when the tools live in the browser. Convert between HEX and RGB, generate palettes and gradients, pick colors visually, and - critically - check WCAG contrast for accessible design before you ship a color pair.",
+    "These utilities are built for designers and developers who need accurate color workflows without context switching. Contrast checking validates text against WCAG AA and AAA, so accessibility problems are caught early, and everything runs locally for privacy.",
+  ],
+  finance: [
+    "Money decisions are easier when the math is clear, and this category collects the calculators that crunch the numbers. Estimate mortgage payments, break down loan EMIs including prepayment savings, model compound interest and SIP growth, convert salary, and figure out tipping.",
+    "Each calculator updates instantly as you change inputs, so comparing scenarios takes seconds. There is no sign-up and no data collection - the numbers you explore stay on your device. Use them to plan a purchase, a loan, or a savings goal before you commit.",
+  ],
+  generator: [
+    "Generators create the random data that developers and everyday users need on demand. Produce secure passwords, QR codes for URLs and Wi-Fi networks, random numbers, and other generated content with a single click.",
+    "Generation runs entirely in your browser, so passwords, codes, and other output are never transmitted or logged anywhere. Choose the settings that fit the job - strength for a password, size for a QR code, or a range for random values - and copy the result straight into whatever needs it.",
+  ],
+  security: [
+    "Security tools in this category help you verify and harden the basics. Check password strength to see what makes a password hard to crack, and compute hashes with SHA-256, SHA-512, MD5, and SHA-1 for checksums and integrity checks.",
+    "All hashing and analysis runs on your device, which matters for security tools: passwords and file contents never leave your computer. The strength checks give practical feedback you can act on immediately, and the hash generators produce standard fingerprints you can verify anywhere.",
+  ],
+  seo: [
+    "SEO tools generate the technical building blocks of search visibility. Create meta tags, robots.txt, sitemap.xml, Open Graph, and Twitter card markup that are ready to paste straight into your site.",
+    "Instead of hand-writing structured data, choose the fields, copy the snippet, and drop it in. The companion guides explain how each file affects crawling and social sharing, so you understand what you are adding and why - all generated in your browser with no account and no upload.",
+  ],
+};
+
 export const CATEGORIES = CATEGORY_SLUGS.map((slug) => {
   const metadata = CATEGORY_METADATA[slug] ?? {
     name: slug.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase()),
@@ -129,6 +176,7 @@ export const CATEGORIES = CATEGORY_SLUGS.map((slug) => {
     count: CATEGORY_TOOL_COUNTS[slug] ?? 0,
     toolCount: CATEGORY_TOOL_COUNTS[slug] ?? 0,
     intro: CATEGORY_INTROS[slug] ?? [],
+    about: CATEGORY_ABOUTS[slug] ?? [],
   };
 });
 
