@@ -74,6 +74,12 @@ export default function CategoryPaginatedPage({ params }: CategoryPageProps) {
         </Text>
       </div>
 
+      <div className="mb-10 max-w-3xl">
+        <p className="text-base leading-relaxed text-muted-foreground">
+          {category.about}
+        </p>
+      </div>
+
       <BlogGrid posts={result.items} />
 
       <Pagination

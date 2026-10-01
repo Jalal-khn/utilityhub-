@@ -3,6 +3,7 @@ export interface BlogCategory {
   name: string;
   description: string;
   intro: string;
+  about: string;
 }
 
 export interface TocItem {

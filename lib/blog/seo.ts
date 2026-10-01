@@ -12,6 +12,14 @@ function buildUrl(path: string): string {
   return `${SITE_CONFIG.url}${path}`;
 }
 
+function buildPostPageTitle(rawTitle: string): string {
+  const MAX_TITLE_LENGTH = 60;
+  const suffixed = `${rawTitle} | ${SITE_CONFIG.name}`;
+  if (suffixed.length <= MAX_TITLE_LENGTH) return suffixed;
+  if (rawTitle.length <= MAX_TITLE_LENGTH) return rawTitle;
+  return `${rawTitle.slice(0, MAX_TITLE_LENGTH - 1).replace(/[\s\-:;,.]+$/, "")}…`;
+}
+
 function resolvePostOgImage(post: BlogPostSummary): string {
   if (
     post.featuredImage &&
@@ -26,14 +34,14 @@ export function getBlogIndexMetadata(): Metadata {
   return {
     title: "Blog",
     description:
-      "Articles, tutorials, and guides on PDFs, images, text, developer tools, calculators, converters, colors, generators, security, and SEO - written and maintained by Jalal Khan.",
+      "Articles, tutorials, and guides on PDFs, images, text, developer tools, calculators, converters, colors, and SEO - written by Jalal Khan.",
     alternates: {
       canonical: buildUrl(ROUTES.BLOG),
     },
     openGraph: {
       title: "UtilityHub Blog",
       description:
-        "Articles, tutorials, and guides on PDFs, images, text, developer tools, calculators, converters, colors, generators, security, and SEO - written and maintained by Jalal Khan.",
+        "Articles, tutorials, and guides on PDFs, images, text, developer tools, calculators, converters, colors, and SEO - written by Jalal Khan.",
       url: buildUrl(ROUTES.BLOG),
       siteName: SITE_CONFIG.name,
       type: "website",
@@ -70,7 +78,7 @@ export function getPostMetadata(post: BlogPostSummary): Metadata {
   const url = buildUrl(BLOG_POST_ROUTE(post.slug));
 
   return {
-    title: post.title,
+    title: { absolute: buildPostPageTitle(post.title) },
     description: post.description,
     keywords: post.keywords,
     authors: [{ name: post.author }],
