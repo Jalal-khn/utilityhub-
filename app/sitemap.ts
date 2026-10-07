@@ -2,11 +2,8 @@ import type { MetadataRoute } from "next";
 import { SITE_CONFIG } from "@/lib/constants/config";
 import { TOOLS } from "@/lib/constants/tools";
 import { CATEGORIES } from "@/lib/constants/categories";
-import { BLOG_CATEGORIES, BLOG_PAGE_SIZE } from "@/lib/blog/constants";
-import {
-  getAllPostSummaries,
-  getPaginatedPostsByCategory,
-} from "@/lib/blog/load-posts";
+import { BLOG_CATEGORIES } from "@/lib/blog/constants";
+import { getAllPostSummaries } from "@/lib/blog/load-posts";
 import { BLOG_POST_ROUTE, BLOG_CATEGORY_ROUTE } from "@/lib/constants/routes";
 
 export const revalidate = 3600;
@@ -88,36 +85,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  const blogPagination: MetadataRoute.Sitemap = BLOG_CATEGORIES.flatMap(
-    (category) => {
-      const { totalPages } = getPaginatedPostsByCategory(category.slug);
-      return Array.from({ length: totalPages }, (_, index) => index + 1)
-        .filter((page) => page > 1)
-        .map((page) => ({
-          url: `${SITE_CONFIG.url}${BLOG_CATEGORY_ROUTE(category.slug)}/page/${page}`,
-          changeFrequency: "weekly" as const,
-          priority: 0.4,
-        }));
-    }
-  );
-
-  const blogTotalPages = Math.ceil(getAllPostSummaries().length / BLOG_PAGE_SIZE);
-  const blogIndexPagination: MetadataRoute.Sitemap = Array.from(
-    { length: Math.max(0, blogTotalPages - 1) },
-    (_, index) => ({
-      url: `${SITE_CONFIG.url}/blog/page/${index + 2}`,
-      changeFrequency: "weekly" as const,
-      priority: 0.4,
-    })
-  );
-
   return [
     ...staticPages,
     ...categoryPages,
     ...toolPages,
     ...blogPosts,
     ...blogCategories,
-    ...blogPagination,
-    ...blogIndexPagination,
   ];
 }
