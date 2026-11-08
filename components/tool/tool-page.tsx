@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { FAQ } from "@/components/common/faq";
 import { Separator } from "@/components/ui/separator";
 import { ToolGrid } from "@/components/tool/tool-grid";
+import { CategoryToolLinks } from "@/components/tool/category-tool-links";
 import { getToolFeatures, getToolBenefits } from "@/lib/tool-engine/features";
 import { getToolContent } from "@/lib/constants/tool-content";
 import type { ToolEngineConfig } from "@/lib/tool-engine";
@@ -204,6 +205,8 @@ export function ToolPage({ config, categoryLabel, toolComponent, relatedTools, g
           </Container>
         </>
       )}
+
+      <CategoryToolLinks category={config.category} currentSlug={config.slug} />
     </div>
   );
 }
