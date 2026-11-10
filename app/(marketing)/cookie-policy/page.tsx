@@ -4,9 +4,9 @@ import { LEGAL_PAGES } from "@/lib/constants/legal";
 import { SITE_CONFIG } from "@/lib/constants/config";
 
 export const metadata: Metadata = {
-  title: "Cookie Policy",
+  title: "Cookie Policy: How UtilityHub Uses Cookies",
   description:
-    "Explains how UtilityHub uses cookies and similar technologies to improve your experience.",
+    "Explains how UtilityHub uses cookies and similar technologies, what is stored in your browser, and how to manage or disable them.",
   alternates: {
     canonical: `${SITE_CONFIG.url}/cookie-policy`,
   },
@@ -14,17 +14,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: `${SITE_CONFIG.url}/cookie-policy`,
-    title: "Cookie Policy | UtilityHub",
+    title: "Cookie Policy: How UtilityHub Uses Cookies",
     description:
-      "Explains how UtilityHub uses cookies and similar technologies to improve your experience.",
+      "Explains how UtilityHub uses cookies and similar technologies, what is stored in your browser, and how to manage or disable them.",
     siteName: SITE_CONFIG.name,
     images: [{ url: "/opengraph-image" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cookie Policy | UtilityHub",
+    title: "Cookie Policy: How UtilityHub Uses Cookies",
     description:
-      "Explains how UtilityHub uses cookies and similar technologies to improve your experience.",
+      "Explains how UtilityHub uses cookies and similar technologies, what is stored in your browser, and how to manage or disable them.",
   },
 };
 

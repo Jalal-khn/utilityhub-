@@ -4,9 +4,9 @@ import { LEGAL_PAGES } from "@/lib/constants/legal";
 import { SITE_CONFIG } from "@/lib/constants/config";
 
 export const metadata: Metadata = {
-  title: "Disclaimer",
+  title: "Disclaimer: Limits of Our Free Online Tools",
   description:
-    "Important disclaimers about the accuracy, reliability, and limitations of the tools available on UtilityHub.",
+    "Important disclaimers about the accuracy, reliability, and limitations of the calculators and tools available on UtilityHub.",
   alternates: {
     canonical: `${SITE_CONFIG.url}/disclaimer`,
   },
@@ -14,17 +14,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: `${SITE_CONFIG.url}/disclaimer`,
-    title: "Disclaimer | UtilityHub",
+    title: "Disclaimer: Limits of Our Free Online Tools",
     description:
-      "Important disclaimers about the accuracy, reliability, and limitations of the tools available on UtilityHub.",
+      "Important disclaimers about the accuracy, reliability, and limitations of the calculators and tools available on UtilityHub.",
     siteName: SITE_CONFIG.name,
     images: [{ url: "/opengraph-image" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Disclaimer | UtilityHub",
+    title: "Disclaimer: Limits of Our Free Online Tools",
     description:
-      "Important disclaimers about the accuracy, reliability, and limitations of the tools available on UtilityHub.",
+      "Important disclaimers about the accuracy, reliability, and limitations of the calculators and tools available on UtilityHub.",
   },
 };
 

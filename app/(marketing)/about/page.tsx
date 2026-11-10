@@ -11,7 +11,7 @@ import { SITE_CONFIG, SITE_AUTHOR } from "@/lib/constants/config";
 import { Shield, Zap, Globe, Wrench, UserRound, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About UtilityHub: Free Browser-Based Tools",
   description:
     "UtilityHub is a collection of free, privacy-first online tools. Fast, accurate, and always free - everything runs directly in your browser.",
   alternates: {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: `${SITE_CONFIG.url}/about`,
-    title: "About Us | UtilityHub",
+    title: "About UtilityHub: Free Browser-Based Tools",
     description:
       "UtilityHub is a collection of free, privacy-first online tools. Fast, accurate, and always free - everything runs directly in your browser.",
     siteName: SITE_CONFIG.name,
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Us | UtilityHub",
+    title: "About UtilityHub: Free Browser-Based Tools",
     description:
       "UtilityHub is a collection of free, privacy-first online tools. Fast, accurate, and always free - everything runs directly in your browser.",
   },

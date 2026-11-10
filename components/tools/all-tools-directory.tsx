@@ -25,6 +25,15 @@ import { HeroSection } from "@/components/common/hero-section";
 import { SearchBar } from "@/components/search/search-bar";
 import { ToolGrid } from "@/components/tool/tool-grid";
 import { FAQ } from "@/components/common/faq";
+import { JsonLd } from "@/components/seo/json-ld";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { Heading, Text } from "@/components/ui/typography";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -78,6 +87,92 @@ const faqItems = [
     answer:
       "Yes. Because the page reads directly from the shared tool configuration registry, new tools become available as soon as they are added.",
   },
+  {
+    question: "Are the tools really free?",
+    answer:
+      "Yes. Every tool in this directory is free to use. There is no paid tier, no per-use limit, no trial period, and no requirement to create an account.",
+  },
+  {
+    question: "Do I need to sign up or install anything?",
+    answer:
+      "No. Nothing in the directory requires a sign-up or an installation. Open a tool, use it in the tab, and close the page when you are done.",
+  },
+  {
+    question: "Are my files uploaded to a server?",
+    answer:
+      "No. File-based tools such as the PDF, image, and hash utilities process your data inside your browser, so your documents and photos stay on your device.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
+
+const CATEGORY_REFERENCE = [
+  {
+    slug: "pdf",
+    covers: "Merge, split, compress, rotate, unlock, and convert PDF documents",
+    tasks: "Combine invoices, shrink a scan, export a PDF to JPG",
+  },
+  {
+    slug: "image",
+    covers: "Compress, resize, crop, flip, and convert image formats",
+    tasks: "PNG to JPG, HEIC to JPG, reduce photo size",
+  },
+  {
+    slug: "text",
+    covers: "Count, measure, transform, and clean up text",
+    tasks: "Word and character counts, case changes, duplicate lines",
+  },
+  {
+    slug: "developer",
+    covers: "Format, encode, decode, and generate developer data",
+    tasks: "Pretty-print JSON, decode Base64, inspect a JWT",
+  },
+  {
+    slug: "math",
+    covers: "Everyday calculations, from age to percentages",
+    tasks: "BMI, discounts, date differences, percentage change",
+  },
+  {
+    slug: "converter",
+    covers: "Convert units of length, weight, area, speed, and temperature",
+    tasks: "Kilometres to miles, kilograms to pounds, Celsius to Fahrenheit",
+  },
+  {
+    slug: "color",
+    covers: "Pick colours, build palettes, generate gradients, and check contrast",
+    tasks: "HEX to RGB, WCAG contrast checks, gradient previews",
+  },
+  {
+    slug: "finance",
+    covers: "Plan loans, interest, savings, salary, and repayments",
+    tasks: "Mortgage payments, EMI, SIP growth, take-home pay",
+  },
+  {
+    slug: "generator",
+    covers: "Generate passwords, QR codes, and random data on demand",
+    tasks: "Strong passwords, WiFi QR codes, random numbers",
+  },
+  {
+    slug: "security",
+    covers: "Check password strength and create cryptographic hashes",
+    tasks: "SHA-256, SHA-512, MD5, SHA-1, password audits",
+  },
+  {
+    slug: "seo",
+    covers: "Produce metadata, robots.txt, sitemaps, and social card tags",
+    tasks: "Meta tags, Open Graph, Twitter cards, sitemap.xml",
+  },
 ];
 
 export function AllToolsDirectoryPage() {
@@ -89,7 +184,7 @@ export function AllToolsDirectoryPage() {
     () => ({
       "@context": "https://schema.org",
       "@type": "CollectionPage",
-      name: "All Free Online Tools | UtilityHub",
+      name: "Browse 90+ Free Online Tools and Calculators | UtilityHub",
       description:
         "Browse all free online tools available on UtilityHub including image tools, PDF tools, calculators, converters, developer tools, SEO tools, generators, and more.",
       url: `${SITE_CONFIG.url}/tools`,
@@ -172,10 +267,7 @@ export function AllToolsDirectoryPage() {
 
   return (
     <div className="flex flex-col">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
+      <JsonLd data={[structuredData, faqJsonLd]} />
       <Container className="py-8">
         <Breadcrumbs items={[{ label: "Tools" }]} className="mb-6" />
       </Container>
@@ -186,6 +278,30 @@ export function AllToolsDirectoryPage() {
         primaryAction={{ label: "Explore Categories", href: "/" }}
         secondaryAction={{ label: "View Popular Tools", href: "#popular-tools" }}
       />
+
+      <section className="pb-2 pt-4">
+        <Container>
+          <div className="mx-auto max-w-3xl space-y-4">
+            <Heading level="h2" className="text-2xl">
+              What this directory includes
+            </Heading>
+            <Text variant="muted" className="leading-relaxed">
+              UtilityHub gathers {tools.length} free browser tools into one index, sorted into{" "}
+              {categoryCounts.length} categories. Every entry opens a working tool on this domain
+              rather than linking out to another site, and each one performs its work on your device
+              instead of a remote server.
+            </Text>
+            <Text variant="muted" className="leading-relaxed">
+              Most visits begin with one of four jobs. You need to change a file&apos;s format, which
+              is the PDF and image group. You need to clean, count, or transform text, which is the
+              text and developer group. You need a number, which is where the calculators and
+              converters sit. Or you need to produce something you can hand to someone else, such as a
+              QR code, a password, or a set of meta tags, covered by the generators, security, and SEO
+              tools. Find your job first, then use the category filters below to narrow the list.
+            </Text>
+          </div>
+        </Container>
+      </section>
 
       <section className="py-8 md:py-12">
         <Container>
@@ -390,6 +506,147 @@ export function AllToolsDirectoryPage() {
                 </Link>
               ))}
             </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-12">
+        <Container>
+          <div className="mx-auto max-w-3xl">
+            <Heading level="h2" className="mb-4">
+              How to choose the right tool
+            </Heading>
+            <Text variant="muted" className="mb-6 leading-relaxed">
+              Three questions settle almost every visit, and they are worth asking in order. Answering
+              them first saves you from scrolling through categories that do not apply.
+            </Text>
+            <ol className="space-y-5">
+              <li>
+                <p className="mb-1 font-semibold">1. What is the input?</p>
+                <Text variant="muted" className="leading-relaxed">
+                  A document, a photo, a block of text, a number, or nothing at all. Documents point to
+                  the PDF tools, photos to the image tools, and text to the text and developer group. If
+                  you are starting from an empty box, you want a generator or one of the SEO utilities.
+                </Text>
+              </li>
+              <li>
+                <p className="mb-1 font-semibold">2. What should come out?</p>
+                <Text variant="muted" className="leading-relaxed">
+                  If the answer has to be a file you can send, use a format converter or compressor. If
+                  it has to be a single number, use a calculator. If it has to be a string you can paste
+                  somewhere else, use a text, developer, or SEO tool. Sorting by output type is often
+                  faster than reading descriptions.
+                </Text>
+              </li>
+              <li>
+                <p className="mb-1 font-semibold">3. How exact does it need to be?</p>
+                <Text variant="muted" className="leading-relaxed">
+                  Calculators and converters return a precise value, so confirm the unit or formula
+                  before relying on it. Text, image, and generator tools produce a working result you
+                  can adjust afterwards. Knowing which group you are in tells you how much verification
+                  the output needs.
+                </Text>
+              </li>
+            </ol>
+            <Text variant="muted" className="mt-6 leading-relaxed">
+              If the tool you need does not appear, type part of its name into the search box. The index
+              matches tool names, primary keywords, tags, and category names, so a fragment such as
+              &quot;compress&quot; or &quot;hex&quot; is usually enough.
+            </Text>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-12">
+        <Container>
+          <div className="mx-auto max-w-3xl">
+            <Heading level="h2" className="mb-4">
+              Why these tools run in your browser
+            </Heading>
+            <Text variant="muted" className="mb-4 leading-relaxed">
+              A conventional online converter uploads your file, processes it on a server, and hands
+              back a download link. That round trip costs time and leaves a copy of your document
+              somewhere you cannot see. The tools in this directory work differently: the page loads
+              once, and the processing happens inside the tab using browser APIs such as Canvas, the File
+              API, and Web Crypto.
+            </Text>
+            <Text variant="muted" className="mb-4 leading-relaxed">
+              The practical difference is what you can safely put in. Tax documents, client photos, and
+              password lists are reasonable inputs when nothing is transmitted. Results also tend to
+              appear without a queue, because the work happens at the speed of your own device rather
+              than behind other users on a shared server.
+            </Text>
+            <Text variant="muted" className="leading-relaxed">
+              There are honest limits. Very large files are bounded by the memory a browser tab allows,
+              and the newer formats need a current browser version. The directory is built for everyday
+              file sizes and everyday jobs, not for multi-gigabyte archives.
+            </Text>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-12">
+        <Container>
+          <div className="mx-auto max-w-4xl">
+            <Heading level="h2" className="mb-3">
+              Category quick reference
+            </Heading>
+            <Text variant="muted" className="mb-6 leading-relaxed">
+              The table shows what each category is for. Tool counts are read from the live registry, so
+              they reflect the current directory rather than a number typed once and forgotten.
+            </Text>
+            <div className="overflow-hidden rounded-2xl border bg-background/80">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Category</TableHead>
+                    <TableHead className="text-center">Tools</TableHead>
+                    <TableHead>What it covers</TableHead>
+                    <TableHead className="hidden md:table-cell">Typical tasks</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {CATEGORY_REFERENCE.map((row) => {
+                    const category = categoryCounts.find((item) => item.slug === row.slug);
+                    return (
+                      <TableRow key={row.slug}>
+                        <TableCell className="font-medium">
+                          {category?.name ?? row.slug}
+                        </TableCell>
+                        <TableCell className="text-center tabular-nums">
+                          {category?.count ?? 0}
+                        </TableCell>
+                        <TableCell className="text-muted-foreground">{row.covers}</TableCell>
+                        <TableCell className="hidden text-muted-foreground md:table-cell">
+                          {row.tasks}
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-12">
+        <Container>
+          <div className="mx-auto max-w-3xl">
+            <Heading level="h2" className="mb-4">
+              How this directory stays accurate
+            </Heading>
+            <Text variant="muted" className="mb-4 leading-relaxed">
+              Every entry on this page comes from the same tool registry that powers the individual tool
+              pages, so the listing cannot drift out of sync with what actually exists. When a tool is
+              added, renamed, or removed, the index, the category counts, and the structured data all
+              update together on the next build.
+            </Text>
+            <Text variant="muted" className="leading-relaxed">
+              Descriptions state what a tool does, not what it might do one day. If an entry promises
+              something the tool does not deliver, the contact page is the fastest route to a fix, and
+              the correction is applied to the tool itself rather than patched over in the listing.
+            </Text>
           </div>
         </Container>
       </section>

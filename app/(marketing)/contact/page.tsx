@@ -10,7 +10,7 @@ import { SITE_CONFIG } from "@/lib/constants/config";
 import { Mail, MessageCircle, Shield, Clock, FileQuestion } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Contact UtilityHub: Support and Feedback",
   description:
     "Get in touch with the UtilityHub team. We are happy to help with questions, feedback, or suggestions about our free online tools.",
   alternates: {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: `${SITE_CONFIG.url}/contact`,
-    title: "Contact Us | UtilityHub",
+    title: "Contact UtilityHub: Support and Feedback",
     description:
       "Get in touch with the UtilityHub team. We are happy to help with questions, feedback, or suggestions about our free online tools.",
     siteName: SITE_CONFIG.name,
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Us | UtilityHub",
+    title: "Contact UtilityHub: Support and Feedback",
     description:
       "Get in touch with the UtilityHub team. We are happy to help with questions, feedback, or suggestions about our free online tools.",
   },
