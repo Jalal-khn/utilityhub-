@@ -4,7 +4,7 @@ import { LEGAL_PAGES } from "@/lib/constants/legal";
 import { SITE_CONFIG } from "@/lib/constants/config";
 
 export const metadata: Metadata = {
-  title: "Cookie Policy: How UtilityHub Uses Cookies",
+  title: "Cookie Policy: What We Store in Your Browser",
   description:
     "Explains how UtilityHub uses cookies and similar technologies, what is stored in your browser, and how to manage or disable them.",
   alternates: {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: `${SITE_CONFIG.url}/cookie-policy`,
-    title: "Cookie Policy: How UtilityHub Uses Cookies",
+    title: "Cookie Policy: What We Store in Your Browser",
     description:
       "Explains how UtilityHub uses cookies and similar technologies, what is stored in your browser, and how to manage or disable them.",
     siteName: SITE_CONFIG.name,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cookie Policy: How UtilityHub Uses Cookies",
+    title: "Cookie Policy: What We Store in Your Browser",
     description:
       "Explains how UtilityHub uses cookies and similar technologies, what is stored in your browser, and how to manage or disable them.",
   },

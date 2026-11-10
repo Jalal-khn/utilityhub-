@@ -43,7 +43,8 @@ export async function generateMetadata({ params }: ToolPageParams): Promise<Meta
     };
   }
 
-  const result = toolEngine().generate(tool);
+  const category = CATEGORIES.find((item) => item.slug === tool.category);
+  const result = toolEngine().generate(tool, { categoryLabel: category?.name });
 
   return result.metadata;
 }

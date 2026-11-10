@@ -5,7 +5,7 @@ import type { BlogCategory } from "./types";
 const BLOG_CATEGORY_INTROS: Record<string, string> = {
   pdf: "Learn how to merge, compress, split, convert, and fix PDF files in your browser - no software installs, no file uploads, and no lost quality.",
   image: "Practical guides to converting, compressing, resizing, cropping, and editing images directly in your browser while keeping quality and privacy intact.",
-  text: "Improve your writing with word and character counters, case converters, and text tools - plus editing habits that make your content clearer and easier to read.",
+  text: "Improve your writing with word and character counters, case converters, and text tools - plus editing habits that make your writing clearer.",
   developer: "Handy developer guides on formatting JSON, encoding and decoding Base64, generating UUIDs, and inspecting tokens safely and efficiently.",
   math: "Everyday math made simple with guides to calculators for age, BMI, percentages, loans, discounts, GST, and date differences.",
   converter: "Convert any measurement instantly with guides to length, temperature, weight, area, speed, and general unit converters.",

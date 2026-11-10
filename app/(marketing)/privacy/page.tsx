@@ -4,7 +4,7 @@ import { LEGAL_PAGES } from "@/lib/constants/legal";
 import { SITE_CONFIG } from "@/lib/constants/config";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy: How UtilityHub Handles Data",
+  title: "Privacy Policy: What We Collect and Why",
   description:
     "Learn how UtilityHub collects, uses, and protects your information when you use our free online tools, including cookies and analytics.",
   alternates: {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: `${SITE_CONFIG.url}/privacy`,
-    title: "Privacy Policy: How UtilityHub Handles Data",
+    title: "Privacy Policy: What We Collect and Why",
     description:
       "Learn how UtilityHub collects, uses, and protects your information when you use our free online tools, including cookies and analytics.",
     siteName: SITE_CONFIG.name,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Privacy Policy: How UtilityHub Handles Data",
+    title: "Privacy Policy: What We Collect and Why",
     description:
       "Learn how UtilityHub collects, uses, and protects your information when you use our free online tools, including cookies and analytics.",
   },

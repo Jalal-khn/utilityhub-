@@ -4,7 +4,7 @@ import { LEGAL_PAGES } from "@/lib/constants/legal";
 import { SITE_CONFIG } from "@/lib/constants/config";
 
 export const metadata: Metadata = {
-  title: "Terms of Service: Rules for Using UtilityHub",
+  title: "Terms of Service: Rules, Limits and Liability",
   description:
     "The terms and conditions that govern your use of the UtilityHub website and its free online tools, including acceptable use and liability.",
   alternates: {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: `${SITE_CONFIG.url}/terms`,
-    title: "Terms of Service: Rules for Using UtilityHub",
+    title: "Terms of Service: Rules, Limits and Liability",
     description:
       "The terms and conditions that govern your use of the UtilityHub website and its free online tools, including acceptable use and liability.",
     siteName: SITE_CONFIG.name,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Terms of Service: Rules for Using UtilityHub",
+    title: "Terms of Service: Rules, Limits and Liability",
     description:
       "The terms and conditions that govern your use of the UtilityHub website and its free online tools, including acceptable use and liability.",
   },

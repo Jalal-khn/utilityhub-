@@ -1,60 +1,74 @@
 import { getCategoryToolCounts, TOOLS } from "./tools";
 
-const CATEGORY_METADATA: Record<string, { name: string; description: string; icon: string }> = {
+const CATEGORY_METADATA: Record<
+  string,
+  { name: string; description: string; icon: string; seoTitle: string }
+> = {
   pdf: {
     name: "PDF Tools",
     description: "Free online PDF tools to merge, split, compress, rotate, and convert PDFs to JPG or images — entirely in your browser with no uploads.",
     icon: "FileText",
+    seoTitle: "PDF Tools - Merge, Split, Compress and Convert",
   },
   image: {
     name: "Image Tools",
     description: "Free image tools to compress, resize, crop, flip, and convert images between PNG, JPG, WEBP, and HEIC formats right in your browser.",
     icon: "Image",
+    seoTitle: "Image Tools - Compress, Resize and Convert",
   },
   text: {
     name: "Text Tools",
     description: "Free text tools to count words and characters, convert case, remove duplicate lines, reverse text, and generate placeholder copy instantly.",
     icon: "Type",
+    seoTitle: "Text Tools - Count, Convert Case and Clean Text",
   },
   developer: {
     name: "Developer Tools",
     description: "Free developer utilities for JSON formatting, Base64 encoding and decoding, URL encoding, UUID generation, and JWT decoding in the browser.",
     icon: "Code",
+    seoTitle: "Developer Tools - Format, Encode and Decode",
   },
   math: {
     name: "Calculators",
     description: "Free online calculators for age, BMI, percentages, loans, discounts, GST, and date differences — instant results, no sign-up required.",
     icon: "Calculator",
+    seoTitle: "Calculators - Percentage, Age, BMI and Loans",
   },
   converter: {
     name: "Converters",
     description: "Free unit converters for length, temperature, weight, area, speed, and more — convert measurements instantly in your browser.",
     icon: "RefreshCw",
+    seoTitle: "Unit Converters - Length, Weight and Speed",
   },
   color: {
     name: "Color Tools",
     description: "Free color tools to convert HEX to RGB, generate palettes and gradients, pick colors, and check WCAG contrast for accessible design.",
     icon: "Palette",
+    seoTitle: "Color Tools - HEX, RGB, Palettes and Contrast",
   },
   finance: {
     name: "Finance Tools",
     description: "Free finance calculators for mortgages, loans, EMI, compound interest, SIP, retirement, salary, tips, and everyday money decisions.",
     icon: "Landmark",
+    seoTitle: "Finance Tools - Loan, EMI, SIP and Mortgage",
   },
   generator: {
     name: "Generators",
     description: "Free generators for strong passwords, QR codes, random numbers, and on-demand data — everything runs locally in your browser.",
     icon: "Sparkles",
+    seoTitle: "Generators - Passwords, QR Codes and More",
   },
   security: {
     name: "Security Tools",
     description: "Free security tools to check password strength and generate SHA-256, SHA-512, MD5, and SHA-1 hashes entirely on your device.",
     icon: "Shield",
+    seoTitle: "Security Tools - Password Checks and Hashing",
   },
   seo: {
     name: "SEO Tools",
     description: "Free SEO tools to generate meta tags, robots.txt, sitemap.xml, Open Graph, and Twitter card markup ready to paste into your site.",
     icon: "Search",
+    seoTitle: "SEO Tools - Meta Tags, Sitemaps and Robots.txt",
   },
 };
 
@@ -165,6 +179,7 @@ export const CATEGORIES = CATEGORY_SLUGS.map((slug) => {
     name: slug.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase()),
     description: "Tools in this category",
     icon: "Box",
+    seoTitle: `${slug.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase())} - Free Online Tools`,
   };
 
   return {
@@ -173,6 +188,7 @@ export const CATEGORIES = CATEGORY_SLUGS.map((slug) => {
     slug,
     description: metadata.description,
     icon: metadata.icon,
+    seoTitle: metadata.seoTitle,
     count: CATEGORY_TOOL_COUNTS[slug] ?? 0,
     toolCount: CATEGORY_TOOL_COUNTS[slug] ?? 0,
     intro: CATEGORY_INTROS[slug] ?? [],

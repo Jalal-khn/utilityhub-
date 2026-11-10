@@ -32,14 +32,14 @@ function resolvePostOgImage(post: BlogPostSummary): string {
 
 export function getBlogIndexMetadata(): Metadata {
   return {
-    title: "UtilityHub Blog: Practical Guides and How-Tos",
+    title: "Blog: Practical Guides, Tutorials and How-Tos",
     description:
       "Articles, tutorials, and guides on PDFs, images, text, developer tools, calculators, converters, colors, and SEO - written by Jalal Khan.",
     alternates: {
       canonical: buildUrl(ROUTES.BLOG),
     },
     openGraph: {
-      title: "UtilityHub Blog: Practical Guides and How-Tos",
+      title: "Blog: Practical Guides, Tutorials and How-Tos",
       description:
         "Articles, tutorials, and guides on PDFs, images, text, developer tools, calculators, converters, colors, and SEO - written by Jalal Khan.",
       url: buildUrl(ROUTES.BLOG),
@@ -52,7 +52,7 @@ export function getBlogIndexMetadata(): Metadata {
 
 export function getBlogCategoryMetadata(categorySlug: string): Metadata {
   const category = getBlogCategory(categorySlug);
-  const title = `${category?.name ?? "Category"} Articles`;
+  const title = `${category?.name ?? "Category"} Articles: Guides and Tutorials`;
   const description =
     category?.intro ??
     `Browse ${title.toLowerCase()} on the ${SITE_CONFIG.name} blog.`;

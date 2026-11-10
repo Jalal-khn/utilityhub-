@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: CategoryPageParams): Promise<
   const url = `${SITE_CONFIG.url}/${category.slug}`;
 
   return {
-    title: `${category.name} - Free Online Tools`,
+    title: category.seoTitle,
     description: category.description,
     alternates: {
       canonical: url,
@@ -39,13 +39,13 @@ export async function generateMetadata({ params }: CategoryPageParams): Promise<
       type: "website",
       locale: "en_US",
       url,
-      title: `${category.name} - Free Online Tools`,
+      title: category.seoTitle,
       description: category.description,
       siteName: SITE_CONFIG.name,
     },
     twitter: {
       card: "summary_large_image",
-      title: `${category.name} - Free Online Tools`,
+      title: category.seoTitle,
       description: category.description,
     },
   };
@@ -63,7 +63,7 @@ export default function CategoryPageRoute({ params }: CategoryPageParams) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: `${category.name} - Free Online Tools`,
+    name: category.seoTitle,
     description: category.description,
     url: `${SITE_CONFIG.url}/${category.slug}`,
     hasPart: tools.map((tool) => ({

@@ -28,7 +28,7 @@ export class ToolEngine {
     config: ToolEngineConfig,
     options?: { categoryLabel?: string }
   ): ToolEngineResult {
-    const metadata = generateMetadata(config, this.context);
+    const metadata = generateMetadata(config, this.context, options);
     const jsonLd = generateJsonLd(config, this.context);
     const breadcrumb = generateBreadcrumb(config, options);
     const breadcrumbJsonLd = generateBreadcrumbJsonLd(config, this.context, options);
