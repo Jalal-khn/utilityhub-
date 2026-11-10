@@ -1,0 +1,196 @@
+---
+title: "Percentage Change Formula: How to Calculate It"
+description: "Learn the percentage change formula, work through increases and decreases, and avoid the sign, baseline, and percentage-point mistakes that skew results."
+slug: percentage-change-formula
+featuredImage: /blog/percentage-change-formula.svg
+category: math
+tags:
+  - percentages
+  - math
+  - finance
+  - calculators
+  - formulas
+author: "Jalal Khan"
+publishedDate: "2026-11-10"
+keywords:
+  - percentage change formula
+  - how to calculate percentage change
+  - percent increase formula
+  - percent decrease formula
+  - percentage change calculator
+faq:
+  - question: "What is the percentage change formula?"
+    answer: "Percentage change is (new value minus old value) divided by the old value, multiplied by 100. If a price moves from 80 to 100, the change is (100 - 80) / 80 x 100 = 25%. The old value is always the baseline."
+  - question: "How do I calculate a percentage increase?"
+    answer: "Subtract the old value from the new value, divide by the old value, then multiply by 100. Going from 40 to 50 is (50 - 40) / 40 x 100 = 25%. A positive result means an increase."
+  - question: "Why does a 50% decrease need a 100% increase to recover?"
+    answer: "Because the baseline changes. Going from 100 to 50 is a 50% decrease of 100. Going back from 50 to 100 is a 100% increase of 50. The same absolute move is a different percentage depending on which value you divide by."
+  - question: "What is the difference between percentage change and percentage points?"
+    answer: "A move from 4% to 6% is 2 percentage points, but it is a 50% relative change, because 2 is half of 4. Use percentage points when both values are already percentages, such as interest rates or conversion rates."
+  - question: "Can you calculate percentage change from zero?"
+    answer: "No. The formula divides by the old value, so a baseline of zero is undefined. Report the absolute change instead, for example 'grew from 0 to 10 sales', rather than claiming an infinite percentage."
+---
+
+Percentage change is the most useful number in everyday analysis and the easiest one to get wrong. It answers a simple question: compared with the old value, how big is the move? The answer depends entirely on which value you treat as the starting point, and that is where most mistakes happen.
+
+This guide covers the formula, the sign convention, the cases where the formula breaks, and the places where people quietly report the wrong number without noticing.
+
+<ToolCTA slug="percentage-calculator" title="Work out any percentage change" label="Open Percentage Calculator" />
+
+## The percentage change formula
+
+The formula compares the change to the original value:
+
+```text
+percentage change = ((new value - old value) / old value) x 100
+```
+
+Three parts matter:
+
+- **New value minus old value** is the absolute change. It can be positive or negative.
+- **Dividing by the old value** turns that change into a fraction of where you started.
+- **Multiplying by 100** converts the fraction into a percentage.
+
+The old value is the baseline. Change the baseline and the same movement produces a different percentage. That single fact explains almost every confusing result in this article.
+
+### A worked example
+
+| Scenario | Old | New | Calculation | Change |
+| --- | --- | --- | --- | --- |
+| Price rises | 80 | 100 | (100 - 80) / 80 x 100 | +25% |
+| Price falls | 100 | 80 | (80 - 100) / 100 x 100 | -20% |
+| Site traffic rises | 1,200 | 1,500 | (1,500 - 1,200) / 1,200 x 100 | +25% |
+| Body weight falls | 90 | 81 | (81 - 90) / 90 x 100 | -10% |
+
+Every row uses the same formula. The only thing that changes is which number sits in the denominator.
+
+## Why +25% and -20% describe the same move
+
+An item that goes from 80 to 100 has risen by 20 in absolute terms. That 20 is 25% of 80, so the percentage change is +25%.
+
+Now reverse it: the item falls from 100 to 80. The absolute drop is still 20, but this time 20 is 20% of 100. The percentage change is -20%.
+
+Same 20-unit move, two different percentages, because the starting point changed. Neither answer is wrong. They are answers to different questions: "how much did it grow from the old base?" versus "how much did it shrink from the newer, larger base?"
+
+This is why a 50% loss cannot be repaired by a 50% gain. Falling from 100 to 50 is -50%. Climbing from 50 back to 100 is +100%, because you now need to double a much smaller number.
+
+<InfoBox type="warning" title="Always ask: percentage of what?">
+A percentage on its own is meaningless. "Up 20%" is only interpretable once you know the baseline and the time period. When someone quotes a percentage change, ask for the two raw numbers behind it. That one question catches most misleading statistics.
+</InfoBox>
+
+## Increase, decrease, and the sign
+
+The sign of the result tells you the direction:
+
+- **Positive** means the new value is larger than the old value.
+- **Negative** means the new value is smaller.
+- **Zero** means nothing changed.
+
+Report the sign or the word "increase"/"decrease" explicitly. Writing "changed by 25%" leaves the reader guessing, and in finance or reporting that ambiguity can be read as an error.
+
+If you only care about the size of the move, take the absolute value and label the direction in words: "a 25% increase" or "a 25% decrease".
+
+## The mistake that costs the most: percentage points
+
+When both values are already percentages, the formula still runs, but the result is easy to misread. Interest rates, conversion rates, market share, and exam scores all live in this category.
+
+A rate moving from 4% to 6%:
+
+- The **difference** is 2 **percentage points**.
+- The **relative change** is (6 - 4) / 4 x 100 = **50%**.
+
+Both statements are true, and news coverage routinely swaps them. If a central bank raises a rate from 4% to 6%, saying "rates rose 50%" is mathematically correct and practically misleading. The convention is to use percentage points whenever both numbers are already percentages.
+
+| Situation | Use | Example |
+| --- | --- | --- |
+| Both values are percentages | Percentage points | 4% to 6% is +2 points |
+| Comparing a percentage to itself over time | Percentage change | 4% to 6% is +50% |
+| Values are counts, prices, or quantities | Percentage change | 80 to 100 is +25% |
+
+## Percentages do not add up
+
+Two changes applied in sequence do not add. Start with 100, raise it 10%, then cut it 10%:
+
+1. 100 plus 10% = 110
+2. 110 minus 10% = 99
+
+The net result is 99, which is a 1% decrease, not zero. The second percentage was taken from a larger base, so it removed slightly more than the first added.
+
+The same trap appears in discounts. A 20% discount followed by an extra 10% is not 30% off:
+
+```text
+price x 0.80 x 0.90 = price x 0.72
+```
+
+The customer pays 72% of the original price, which is a 28% discount. Stacked percentages multiply; they never add.
+
+## Working backwards from a percentage change
+
+Sometimes you know the new value and the percentage, and need the original. Rearranging the formula gives:
+
+```text
+old value = new value / (1 + percentage change / 100)
+```
+
+If a price is 120 after a 20% increase, the original was 120 / 1.2 = 100. If a price is 80 after a 20% decrease, the original was 80 / 0.8 = 100. The same "+20%" and "-20%" produce different divisors, which is another way of seeing that the base controls the answer.
+
+## When percentage change breaks
+
+The formula is robust for ordinary positive quantities, but four situations make it unreliable:
+
+**A baseline of zero.** Dividing by zero is undefined. Going from 0 to 10 sales is not an infinite improvement, it is simply "grew from 0 to 10". Report the absolute numbers.
+
+**A negative baseline.** Take a value moving from -50 to -25. Using the formula with the absolute baseline, ((-25) - (-50)) / 50 x 100, gives +50%. The magnitude halved, yet the formula reports a positive change, which reads as growth. When the baseline can be negative, state the convention you used and prefer the absolute change.
+
+**A tiny baseline.** Going from 1 to 2 is +100%, and from 1 to 3 is +200%. The math is correct, but the percentages overstate how significant the move is. Pair them with the raw counts.
+
+**Values that are already percentages.** Use percentage points, as covered above.
+
+## Where this comes up in practice
+
+Percentage change is the backbone of pricing, budgeting, and performance reporting:
+
+- **Discounts.** A price cut is a percentage change with the old price as the baseline. The [discount calculator](/math/discount-calculator) handles the arithmetic, including stacked discounts.
+- **Tax.** Adding or removing GST shifts a price by a percentage of the pre-tax amount. The [GST calculator](/math/gst-calculator) works in both directions.
+- **Profit and margin.** Revenue moving from one period to the next is a percentage change, but margin is a ratio of two different numbers. The [profit margin calculator](/finance/profit-margin-calculator) keeps those separate.
+- **Everyday tipping.** A tip is a percentage of the bill, and the same base-value logic applies to splitting it. See the [tipping guide](/blog/how-much-to-tip-guide) for the conventions.
+- **Growth over time.** Percentage change from one period to the next differs from compound growth across many periods; the [compound interest explainer](/blog/simple-vs-compound-interest) covers the difference.
+
+## Calculating percentage change in a spreadsheet
+
+If your data already lives in a spreadsheet, skip the manual arithmetic. Put the old value in column A and the new value in column B, then in column C use `=(B2-A2)/A2` and format the cell as a percentage.
+
+The parentheses are not optional. Written as `=B2-A2/A2`, the spreadsheet divides A2 by A2 first, then subtracts 1 from B2, and you get a confidently wrong answer. Both Excel and Google Sheets follow the same order of operations.
+
+To show the sign explicitly, apply a custom number format such as `+0.0%;-0.0%`. Increases appear with a plus, decreases with a minus, and both keep one decimal place.
+
+In SQL the same care applies:
+
+```sql
+SELECT (new_value - old_value) * 100.0 / old_value AS pct_change
+FROM metrics;
+```
+
+The `.0` matters. Many databases perform integer division when both operands are integers, which silently rounds the result down to zero for small changes.
+
+## Rounding and reporting
+
+Percentages are usually reported to one decimal place, which is enough for most decisions. Reporting 25.347% implies a precision the underlying data rarely supports.
+
+Round at the end, not in the middle. Rounding each intermediate step compounds error, and stacked percentages make that error visible quickly.
+
+When a change is small, report the absolute numbers next to the percentage. "Up 0.3%" is almost meaningless on its own, because it could mean three customers or three thousand.
+
+## A checklist before you publish a percentage
+
+1. Identify the old value and confirm it is the baseline.
+2. Note whether you are comparing counts or percentages.
+3. If both values are percentages, decide between percentage points and relative change.
+4. Check whether the baseline is zero, negative, or very small.
+5. Report the raw numbers alongside the percentage.
+
+If you can answer all five, the number you publish will survive scrutiny.
+
+<ToolCTA slug="percentage-calculator" title="Check your numbers in seconds" label="Calculate Percentage Change" />
+
+Related reading: if you are comparing pay figures, [gross salary versus take-home pay](/blog/gross-salary-vs-take-home-pay) walks through the deductions that change the base. For loan and interest maths, see [how to calculate a mortgage payment](/blog/how-to-calculate-mortgage-payment) and the [EMI prepayment guide](/blog/emi-prepayment-save-interest).
