@@ -8,11 +8,11 @@ const BLOG_CATEGORY_INTROS: Record<string, string> = {
   text: "Improve your writing with word and character counters, case converters, and text tools - plus editing habits that make your writing clearer.",
   developer: "Handy developer guides on formatting JSON, encoding and decoding Base64, generating UUIDs, and inspecting tokens safely and efficiently.",
   math: "Everyday math made simple with guides to calculators for age, BMI, percentages, loans, discounts, GST, and date differences.",
-  converter: "Convert any measurement instantly with guides to length, temperature, weight, area, speed, and general unit converters.",
-  color: "Design and accessibility guides covering color conversion, palettes, gradients, and WCAG contrast checking.",
-  generator: "Generate secure passwords, scannable QR codes, random numbers, and more with guides to our on-demand content tools.",
+  converter: "Convert any measurement instantly with guides to length, temperature, weight, area, speed, and general unit converters, with worked formulas.",
+  color: "Design and accessibility guides covering color conversion, palettes, gradients, and WCAG contrast checking, with practical design tips.",
+  generator: "Generate secure passwords, scannable QR codes, random numbers, and more with practical guides to our on-demand content tools.",
   finance: "Make smarter money decisions with guides to mortgage payments, loan EMIs, compound interest, take-home pay, retirement savings, and debt payoff strategies.",
-  security: "Security-focused guides on password strength checking and hash generation, all processed locally on your device.",
+  security: "Security-focused guides on password strength checking and hash generation, all processed locally on your device and never uploaded.",
   seo: "Search engine optimization guides covering meta tags, Open Graph, structured data, sitemaps, and ranking best practices.",
 };
 
