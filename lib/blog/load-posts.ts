@@ -310,6 +310,47 @@ export function getRelatedPosts(
     .map((item) => toSummary(item.candidate));
 }
 
+/**
+ * Pick the blog posts most relevant to a tool page. Same-category posts
+ * always score highest, then posts whose title, tags, or keywords mention
+ * the tool. Used to give every tool page a small set of editorial links.
+ */
+export function getPostsForTool(
+  input: { category: string; keywords: string[] },
+  limit = 3
+): BlogPostSummary[] {
+  const keywords = input.keywords
+    .map((keyword) => keyword.trim().toLowerCase())
+    .filter((keyword) => keyword.length >= 4);
+
+  return getPublishedPosts()
+    .map((post) => {
+      let score = post.category === input.category ? 5 : 0;
+      const haystack = [
+        post.title,
+        post.description,
+        ...post.tags,
+        ...post.keywords,
+      ]
+        .join(" ")
+        .toLowerCase();
+
+      for (const keyword of keywords) {
+        if (haystack.includes(keyword)) score += 3;
+      }
+
+      return { post, score };
+    })
+    .sort(
+      (a, b) =>
+        b.score - a.score ||
+        new Date(b.post.publishedDate).getTime() -
+          new Date(a.post.publishedDate).getTime()
+    )
+    .slice(0, limit)
+    .map((item) => toSummary(item.post));
+}
+
 export function searchPosts(query: string): BlogPostSummary[] {
   const normalized = query.trim().toLowerCase();
   if (!normalized) return [];

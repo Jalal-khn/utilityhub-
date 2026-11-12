@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getToolBySlug } from "@/lib/constants/tools";
 import { CATEGORIES } from "@/lib/constants/categories";
 import { TOOLS } from "@/lib/constants/tools";
+import { getPostsForTool } from "@/lib/blog/load-posts";
 import { ToolPage } from "@/components/tool/tool-page";
 import { JsonLd } from "@/components/seo/json-ld";
 import { ToolGuide } from "@/components/tool/tool-guide";
@@ -63,6 +64,14 @@ export default function ToolPageRoute({ params }: ToolPageParams) {
     .map((slug) => getToolBySlug(slug))
     .filter((item): item is NonNullable<typeof item> => Boolean(item));
 
+  const relatedPosts = getPostsForTool(
+    {
+      category: tool.category,
+      keywords: [tool.name, tool.primaryKeyword, ...tool.searchTags],
+    },
+    3
+  );
+
   const ToolComponent = <ToolWidget category={tool.category} slug={tool.slug} />;
 
   return (
@@ -73,6 +82,7 @@ export default function ToolPageRoute({ params }: ToolPageParams) {
         categoryLabel={category?.name}
         toolComponent={ToolComponent}
         relatedTools={relatedTools}
+        relatedPosts={relatedPosts}
         guide={<ToolGuide config={tool} />}
       />
     </>

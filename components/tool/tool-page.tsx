@@ -8,6 +8,8 @@ import { CategoryToolLinks } from "@/components/tool/category-tool-links";
 import { getToolFeatures, getToolBenefits } from "@/lib/tool-engine/features";
 import { getToolContent } from "@/lib/constants/tool-content";
 import type { ToolEngineConfig } from "@/lib/tool-engine";
+import type { BlogPostSummary } from "@/lib/blog/types";
+import Link from "next/link";
 import type { ReactNode } from "react";
 
 interface ToolPageProps {
@@ -15,10 +17,18 @@ interface ToolPageProps {
   categoryLabel?: string;
   toolComponent: ReactNode;
   relatedTools: ToolEngineConfig[];
+  relatedPosts?: BlogPostSummary[];
   guide?: ReactNode;
 }
 
-export function ToolPage({ config, categoryLabel, toolComponent, relatedTools, guide }: ToolPageProps) {
+export function ToolPage({
+  config,
+  categoryLabel,
+  toolComponent,
+  relatedTools,
+  relatedPosts = [],
+  guide,
+}: ToolPageProps) {
   const features = getToolFeatures(config);
   const benefits = getToolBenefits(config);
   const content = getToolContent(config.slug);
@@ -202,6 +212,38 @@ export function ToolPage({ config, categoryLabel, toolComponent, relatedTools, g
               }))}
               columns={3}
             />
+          </Container>
+        </>
+      )}
+
+      {relatedPosts.length > 0 && (
+        <>
+          <Separator />
+          <Container className="py-12">
+            <div className="mx-auto max-w-4xl">
+              <Heading level="h2" className="mb-2">
+                Guides
+              </Heading>
+              <Text variant="muted" className="mb-6">
+                In-depth tutorials that use {config.name} and related tools
+              </Text>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {relatedPosts.map((post) => (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="group flex flex-col gap-2 rounded-lg border border-border/60 bg-card p-5 transition-colors hover:border-primary/60"
+                  >
+                    <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                      {post.categoryName} &middot; {post.readingTime} min read
+                    </span>
+                    <span className="font-semibold leading-snug group-hover:text-primary">
+                      {post.title}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </Container>
         </>
       )}
